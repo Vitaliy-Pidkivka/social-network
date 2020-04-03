@@ -1,0 +1,19 @@
+.nav {
+  padding: 20px;
+  flex: 0 1 25%;
+  box-shadow: 1px 1px 4px black;
+  background-color: #8b6e31;
+  flex-grow: 1;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+
+  }
+}
