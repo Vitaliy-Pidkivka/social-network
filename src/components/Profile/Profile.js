@@ -1,30 +1,27 @@
 import React from 'react';
-import  styles from './Profile.module.scss'
+import styles from './Profile.module.scss'
+import MyPosts from "./MyPosts/MyPosts";
 
 function Profile() {
     return (
-        <div className={styles.profile}>
-            <div className="profile__img">
+        <div className={styles['profile']}>
+            <div className={styles['profile__img']}>
                 <img
-                    src="https://lh3.googleusercontent.com/proxy/BKVe7h9x5fKLER6qmjW8m2ky45ZVagBiR8f7nxktxqZ8NBDukSE2SmEub23zkq1jpB7kv8NgqA8t91zvN02yby6Hc8_DqV2IsmjFevAbztBdqum0BHXQ0TcX1kW0CYf_W5cZiFF13RM"
+                    src="https://image.winudf.com/v2/image/Y29tLmhkd2Nhci5teWhhaWJpemhpX3NjcmVlbnNob3RzXzJfYjU4MjhlMQ/screen-2.jpg?fakeurl=1&type=.jpg"
                     alt="#"
                 />
             </div>
-            <div>
-                ava+descr
-            </div>
-            <div>
-                myPosts
-                <div>
-                    newPost
-                </div>
-                <div>
-                    post1
-                </div>
-                <div>
-                    post2
+            <div className={styles['profile__info']}>
+                <img src="https://cdn2.iconfinder.com/data/icons/men-avatars/33/man_2-512.png" alt="#"
+                     className={styles.profile__avatar}/>
+                <div className="profile__info-box">
+                    <div className={styles['profile__name']}><p>Vitalii Pidkivka</p></div>
+                    <div className="profile__date"><p>Date of Birth: <span>6 september</span></p></div>
+                    <div className="profile__education"><p>Education: <span>BSU 11</span></p></div>
+                    <div className="profile__site"><p>Web Site: <a href="https://google.com">google.com</a></p></div>
                 </div>
             </div>
+            <MyPosts/>
         </div>
     );
 }
