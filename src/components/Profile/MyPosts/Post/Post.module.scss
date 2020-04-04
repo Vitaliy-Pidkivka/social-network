@@ -1,0 +1,17 @@
+.post{
+  padding: 20px;
+  border: 1px solid white;
+    margin-top: 10px;
+  &__image{
+    margin-right: 15px;
+    img{
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+    }
+  }
+  &__message{
+    margin-top: 5px;
+    color: white;
+  }
+}

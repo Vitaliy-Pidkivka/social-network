@@ -1,0 +1,52 @@
+.myPosts {
+  background-color: gray;
+  padding: 20px;
+  margin-top: 30px;
+  box-shadow: 0 0 7px black;
+border-radius: 4px;
+  &__title {
+    color: white;
+    font-size: 40px;
+    line-height: 44px;
+  }
+
+  .newPost {
+    margin-top: 40px;
+
+    textarea {
+      display: block;
+      height: 100px;
+      width: 99%;
+      padding: 4px 4px;
+      font-size: 20px;
+      line-height: 24px;
+
+      &:focus {
+        outline: 2px solid #ae9151;
+      }
+    }
+
+    .button {
+      margin-top: 10px;
+      background-color: #a6bdb5;
+      padding: 4px 10px;
+      border: none;
+      outline: none;
+      box-shadow: 0 0 4px black;
+      text-transform: uppercase;
+      cursor: pointer;
+
+      &:not(:first-child) {
+        margin-right: 10px;
+      }
+
+      &:hover {
+        background-color: #8bbdaf;
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+}
