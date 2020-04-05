@@ -12,6 +12,20 @@
   }
   &__message{
     margin-top: 5px;
+    font-size: 20px;
+    line-height: 24px;
     color: white;
+  }
+  &__likes-count{
+    color: white;
+    margin-top: 20px;
+    span{
+      margin-right: 10px;
+    }
+  }
+  &__likes-btn{
+    img{
+      max-width: 13px;
+    }
   }
 }

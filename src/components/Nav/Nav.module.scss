@@ -5,6 +5,13 @@
   background-color: #728980;
   flex-grow: 1;
 
+  &__btn {
+    &.active{
+      font-weight: bold;
+     text-shadow: 3px 3px 0px black;
+    }
+  }
+
   a {
     color: white;
     text-decoration: none;

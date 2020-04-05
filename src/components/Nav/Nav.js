@@ -1,15 +1,16 @@
 import React from 'react';
-import  styles from './Nav.module.scss'
+import styles from './Nav.module.scss'
+import {NavLink} from "react-router-dom";
 
-function Nav() {
+function Nav(props) {
     return (
         <nav className={styles.nav}>
             <ul>
-                <li><a href="#placeholder">Profile</a></li>
-                <li><a href="#placeholder">Messages</a></li>
-                <li><a href="#placeholder">News</a></li>
-                <li><a href="#placeholder">Music</a></li>
-                <li><a href="#placeholder">Settings</a></li>
+                <li><NavLink className={styles['nav__btn']} to="/profile">Profile</NavLink></li>
+                <li><NavLink className={`${styles['nav__btn']} ${styles.active}`} to="/dialogs">Messages</NavLink></li>
+                <li><NavLink className={styles['nav__btn']} to="/news">News</NavLink></li>
+                <li><NavLink className={styles['nav__btn']} to="/music">Music</NavLink></li>
+                <li><NavLink className={styles['nav__btn']} to="/settings">Settings</NavLink></li>
             </ul>
         </nav>
     );

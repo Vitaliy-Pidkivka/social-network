@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Profile.module.scss'
 import MyPosts from "./MyPosts/MyPosts";
 
-function Profile() {
+function Profile(props) {
     return (
         <div className={styles['profile']}>
             <div className={styles['profile__img']}>

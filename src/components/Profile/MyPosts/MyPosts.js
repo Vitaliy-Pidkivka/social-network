@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './MyPosts.module.scss'
 import Post from "./Post/Post";
 
-function MyPosts() {
+function MyPosts(props) {
     return (
         <div className={styles.myPosts}>
             <div className={styles['myPosts__title']}>
@@ -16,9 +16,8 @@ function MyPosts() {
                 <button className={styles['button']}>Remove message</button>
             </div>
             <div className="posts">
-                <Post/>
-                <Post/>
-                <Post/>
+                <Post message="Hi, how are yoy?" likes="15"/>
+                <Post message="It's my new post" likes="20"/>
             </div>
         </div>
     );

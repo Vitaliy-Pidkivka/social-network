@@ -1,0 +1,119 @@
+.dialogs {
+  display: flex;
+  justify-content: space-between;
+  p {
+    margin: 0;
+  }
+
+  &__items {
+    flex: 0 1 300px;
+    padding: 15px;
+
+    .dialog {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      border-radius: 4px;
+      background-color: gray;
+
+      &:not(:first-child) {
+        margin-top: 20px;
+      }
+
+      span {
+        color: white;
+      }
+
+      button {
+        background-color: #a6bdb5;
+        padding: 4px 10px;
+        border: none;
+        outline: none;
+        box-shadow: 0 0 4px black;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-radius: 4px;
+
+        &:hover {
+          background-color: #8bbdaf;
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+    }
+  }
+
+  &__messages {
+    flex: 0 1 48%;
+    padding: 15px;
+    box-shadow: 0 0 10px black;
+    flex-grow: 1;
+
+    .message {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      padding: 10px;
+      border-radius: 4px;
+      background-color: gray;
+      max-width: 85%;
+      &::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        bottom: 0px;
+        left: -6px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 0 10px 10px;
+        border-color: transparent transparent gray transparent;
+      }
+      &.opponent {
+        margin-left: auto;
+        &::before {
+          right: -6px;
+          left: auto;
+          border-width: 10px 0 0 10px;
+
+          border-color: transparent transparent  transparent gray;
+
+        }
+      }
+
+      &:not(:first-child) {
+        margin-top: 20px;
+      }
+
+      &__text {
+      }
+
+      button {
+        margin-top: 10px;
+        align-self: flex-end;
+        background-color: #a6bdb5;
+        padding: 4px 10px;
+        border: none;
+        outline: none;
+        box-shadow: 0 0 4px black;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-radius: 4px;
+        max-height: 23px;
+        font-size: 11px;
+        line-height: 15px;
+
+        &:hover {
+          background-color: #8bbdaf;
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+    }
+  }
+}
