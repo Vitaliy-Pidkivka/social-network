@@ -1,9 +1,8 @@
 .nav {
   padding: 20px;
-  flex: 0 1 25%;
+  flex: 0 1 150px;
   box-shadow: 1px 1px 4px black;
   background-color: #728980;
-  flex-grow: 1;
 
   &__btn {
     &.active{

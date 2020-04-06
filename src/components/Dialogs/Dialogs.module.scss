@@ -6,50 +6,17 @@
   }
 
   &__items {
-    flex: 0 1 300px;
+    flex: 0 0 300px;
     padding: 15px;
+    margin-right: 20px;
 
-    .dialog {
-      display: flex;
-      justify-content: space-between;
-      padding: 10px;
-      border-radius: 4px;
-      background-color: gray;
-
-      &:not(:first-child) {
-        margin-top: 20px;
-      }
-
-      span {
-        color: white;
-      }
-
-      button {
-        background-color: #a6bdb5;
-        padding: 4px 10px;
-        border: none;
-        outline: none;
-        box-shadow: 0 0 4px black;
-        text-transform: uppercase;
-        cursor: pointer;
-        border-radius: 4px;
-
-        &:hover {
-          background-color: #8bbdaf;
-        }
-
-        &:active {
-          transform: scale(0.95);
-        }
-      }
-    }
   }
 
   &__messages {
-    flex: 0 1 48%;
+    flex: 0 1 500px;
     padding: 15px;
     box-shadow: 0 0 10px black;
-    flex-grow: 1;
+    min-width: 280px;
 
     .message {
       position: relative;
@@ -89,22 +56,24 @@
       }
 
       &__text {
+        color: white;
+        font-size: 14px;
+        line-height: 16px;
+
       }
 
       button {
         margin-top: 10px;
         align-self: flex-end;
         background-color: #a6bdb5;
-        padding: 4px 10px;
+        padding: 4px 8px;
         border: none;
         outline: none;
         box-shadow: 0 0 4px black;
         text-transform: uppercase;
         cursor: pointer;
         border-radius: 4px;
-        max-height: 23px;
-        font-size: 11px;
-        line-height: 15px;
+        font-size: 10px;
 
         &:hover {
           background-color: #8bbdaf;

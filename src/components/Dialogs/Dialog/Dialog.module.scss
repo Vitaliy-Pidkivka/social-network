@@ -1,0 +1,45 @@
+
+.dialog {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: gray;
+
+  &:not(:first-child) {
+    margin-top: 20px;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      font-weight: bold;
+      text-shadow: 3px 3px 0px black;
+    }
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  button {
+    background-color: #a6bdb5;
+    padding: 4px 8px;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 4px black;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 10px;
+
+    &:hover {
+      background-color: #8bbdaf;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
