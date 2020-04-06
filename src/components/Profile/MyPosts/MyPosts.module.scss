@@ -4,7 +4,9 @@
   margin-top: 30px;
   box-shadow: 0 0 7px black;
   border-radius: 4px;
-
+  &__btn {
+    height: 400px;
+  }
   &__title {
     color: white;
     font-size: 40px;
@@ -26,29 +28,7 @@
         outline: 2px solid #ae9151;
       }
     }
-
-    .button {
-      margin-top: 10px;
-      background-color: #a6bdb5;
-      padding: 4px 10px;
-      border: none;
-      outline: none;
-      box-shadow: 0 0 4px black;
-      text-transform: uppercase;
-      cursor: pointer;
-      border-radius: 4px;
-
-      &:not(:first-child) {
-        margin-right: 10px;
-      }
-
-      &:hover {
-        background-color: #8bbdaf;
-      }
-
-      &:active {
-        transform: scale(0.95);
-      }
-    }
   }
+
+
 }

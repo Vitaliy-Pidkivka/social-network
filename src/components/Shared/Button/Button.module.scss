@@ -1,0 +1,53 @@
+.button {
+  margin-top: 10px;
+  background-color: #a6bdb5;
+  padding: 4px 10px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 4px black;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 18px;
+
+  &:not(:first-child) {
+    margin-right: 10px;
+  }
+
+  &:hover {
+    background-color: #8bbdaf;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+  &.aqua{
+    background-color: aqua;
+    &:hover{
+      background-color: #09e4e6;
+    }
+
+  }
+  &.purple{
+    background-color: mediumpurple;
+    color: white;
+
+    &:hover{
+      background-color: #805fbd;
+    }
+  }
+  &.small{
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 3px 6px;
+    margin-top: 0;
+    &:not(:first-child){
+      margin-right: 0;
+    }
+  }
+  .preloader{
+    max-width: 10px;
+    margin-right: 4px;
+  }
+}

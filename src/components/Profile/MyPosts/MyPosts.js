@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './MyPosts.module.scss'
 import Post from "./Post/Post";
+import Button from "../../Shared/Button/Button";
 
 function MyPosts(props) {
     return (
@@ -12,8 +13,8 @@ function MyPosts(props) {
             </div>
             <div className={styles['newPost']}>
                 <textarea type="text" name="newPost" id="newPost"/>
-                <button className={styles['button']}>Add message</button>
-                <button className={styles['button']}>Remove message</button>
+                <Button value="Add message" type="aqua" loading={true} />
+                <Button value="Remove message" type="purple" />
             </div>
             <div className="posts">
                 <Post message="Hi, how are yoy?" likes="15"/>
