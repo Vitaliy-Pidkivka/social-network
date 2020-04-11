@@ -1,0 +1,46 @@
+
+.profile {
+  &__info {
+    display: flex;
+    margin-top: 30px;
+
+    p {
+      margin: 0;
+      display: inline;
+    }
+
+    a {
+      text-decoration: none;
+      color: blue;
+
+      &:hover {
+        color: #595dcb;
+        text-shadow: 1px 1px 0px #595dcb;
+      }
+    }
+  }
+
+  &__avatar {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    max-width: 140px;
+    max-height: 140px;
+    float: left;
+  }
+
+  &__name {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  &__date {
+  }
+
+  &__education {
+  }
+
+  &__site {
+  }
+
+
+}

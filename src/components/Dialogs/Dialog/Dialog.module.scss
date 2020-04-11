@@ -2,10 +2,11 @@
 .dialog {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px;
   border-radius: 4px;
   background-color: gray;
-
+  box-shadow: 0 0 4px black;
   &:not(:first-child) {
     margin-top: 20px;
   }

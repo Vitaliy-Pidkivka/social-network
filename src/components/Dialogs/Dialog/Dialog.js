@@ -7,7 +7,7 @@ function Dialog(props) {
     let path = "/dialogs/" + props.id;
     return(
         <div className={styles.dialog}>
-            <NavLink to={path}>{props.name}</NavLink> <Button value="remove" size="small"/>
+            <NavLink to={path}>{props.name}</NavLink> <Button value="remove" sizeClass="small"/>
         </div>
     )
 }

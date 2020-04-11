@@ -13,8 +13,8 @@ function MyPosts(props) {
             </div>
             <div className={styles['newPost']}>
                 <textarea type="text" name="newPost" id="newPost"/>
-                <Button value="Add message" type="aqua" loading={true} />
-                <Button value="Remove message" type="purple" />
+                <Button value="Add message" typeClass="aqua" />
+                <Button value="Remove message" typeClass="purple" />
             </div>
             <div className="posts">
                 <Post message="Hi, how are yoy?" likes="15"/>
