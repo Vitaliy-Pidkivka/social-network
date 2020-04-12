@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './Settings.module.scss'
 
-function Settings(props) {
+const Settings = (props) => {
     return (
-            <div className={styles.settings}>
-                Settings
-            </div>
+        <div className={styles.settings}>
+            Settings
+        </div>
     )
 }
 

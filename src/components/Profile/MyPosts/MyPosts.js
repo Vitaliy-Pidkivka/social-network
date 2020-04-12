@@ -3,7 +3,9 @@ import styles from './MyPosts.module.scss'
 import Post from "./Post/Post";
 import Button from "../../Shared/Button/Button";
 
-function MyPosts(props) {
+
+
+const MyPosts = (props) => {
     return (
         <div className={styles.myPosts}>
             <div className={styles['myPosts__title']}>
@@ -13,12 +15,11 @@ function MyPosts(props) {
             </div>
             <div className={styles['newPost']}>
                 <textarea type="text" name="newPost" id="newPost"/>
-                <Button value="Add message" typeClass="aqua" />
-                <Button value="Remove message" typeClass="purple" />
+                <Button value="Add message" typeClass="aqua"/>
+                <Button value="Remove message" typeClass="purple"/>
             </div>
             <div className="posts">
-                <Post message="Hi, how are yoy?" likes="15"/>
-                <Post message="It's my new post" likes="20"/>
+                {props.posts.map((post,index) => (<Post {...post} key={index}/>))}
             </div>
         </div>
     );

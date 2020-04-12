@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './ProfileInfo.module.scss'
 
 
-function ProfileInfo(props) {
+const ProfileInfo = (props) => {
     return (
         <div className={styles['profile__info']}>
             <img src="https://cdn2.iconfinder.com/data/icons/men-avatars/33/man_2-512.png" alt="#"

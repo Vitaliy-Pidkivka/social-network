@@ -3,9 +3,9 @@ import styles from './Dialog.module.scss'
 import {NavLink} from "react-router-dom";
 import Button from "../../Shared/Button/Button";
 
-function Dialog(props) {
+const Dialog = (props) => {
     let path = "/dialogs/" + props.id;
-    return(
+    return (
         <div className={styles.dialog}>
             <NavLink to={path}>{props.name}</NavLink> <Button value="remove" sizeClass="small"/>
         </div>

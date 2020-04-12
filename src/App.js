@@ -9,7 +9,7 @@ import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 
-function App(props) {
+const App = (props) => {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
@@ -17,7 +17,7 @@ function App(props) {
                 <main className="content">
                     <Nav/>
                     <div className="main-screen">
-                        <Route path="/profile" component={Profile}/>
+                        <Route path="/profile" render={ () => <Profile profile={props.state.profile} />}/>
                         <Route path="/dialogs" exact component={Dialogs}/>
                         <Route path="/dialogs/:id" exact component={Dialogs}/>
                         <Route path="/news" component={News}/>

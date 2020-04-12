@@ -4,9 +4,20 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+const state = {
+  profile:{
+      posts: [
+          {message: "Hi, how are you?", likes: 15},
+          {message: "It's my new post", likes: 20},
+          {message: "Social network in progress....", likes: 52},
+      ]
+  }
+
+}
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App state={state}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

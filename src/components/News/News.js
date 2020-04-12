@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './News.module.scss'
 
-function News(props) {
+const News = (props) => {
     return (
-            <div className={styles.news}>
-                News
-            </div>
+        <div className={styles.news}>
+            News
+        </div>
     )
 }
 

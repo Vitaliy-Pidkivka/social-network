@@ -3,7 +3,7 @@ import styles from './Message.module.scss'
 import Button from "../../Shared/Button/Button";
 
 
-function Message(props) {
+const Message = (props) => {
     const {opponent} = props
     const className = `${styles.message} ${opponent ? styles.opponent : ""}`
     return (

@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './Music.module.scss'
 
-function Music(props) {
+const Music = (props) => {
     return (
-            <div className={styles.music}>
-             Music
-            </div>
+        <div className={styles.music}>
+            Music
+        </div>
     )
 }
 
