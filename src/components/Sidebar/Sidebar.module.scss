@@ -1,13 +1,16 @@
-.nav {
+.sidebar {
   padding: 20px;
-  flex: 0 1 150px;
+  flex: 0 1 260px;
   box-shadow: 1px 1px 4px black;
   background-color: #728980;
+}
+
+.nav {
 
   &__btn {
-    &.active{
+    &.active {
       font-weight: bold;
-     text-shadow: 3px 3px 0px black;
+      text-shadow: 3px 3px 0px black;
     }
   }
 
@@ -23,3 +26,5 @@
 
   }
 }
+
+

@@ -1,22 +1,21 @@
 import React from 'react';
 import './App.scss';
 import Header from "./components/Header/Header";
-import Nav from "./components/Nav/Nav";
+import Sidebar from "./components/Sidebar/Sidebar";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter, Route} from "react-router-dom";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
-
-const App = ({state}) => {
-    console.log(state)
+import  state from './redux/state';
+const App = () => {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
                 <Header/>
                 <main className="content">
-                    <Nav/>
+                    <Sidebar/>
                     <div className="main-screen">
                         <Route path="/profile" render={() => <Profile profile={state.profile}/>}/>
                         {/*<Route path="/dialogs" exact render = { (props) => <Dialogs {...props} />}/>*/}
