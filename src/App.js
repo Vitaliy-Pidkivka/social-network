@@ -16,7 +16,7 @@ const App = (state) => {
             <main className="content">
                 <Sidebar sidebar={state.state.sidebar}/>
                 <div className="main-screen">
-                    <Route path="/profile" render={() => <Profile profile={state.state.profile}/>}/>
+                    <Route path="/profile" render={() => <Profile profile={state.state.profile} addPost={state.addPost} removePost={state.removePost}/>} />
                     <Route path="/dialogs" exact
                            render={(props) => <Dialogs dialogs={state.state.dialogs} {...props}/>}/>
                     <Route path="/dialogs/:id" exact

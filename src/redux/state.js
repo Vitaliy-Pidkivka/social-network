@@ -1,3 +1,5 @@
+import {renderEntireTree} from "../render";
+
 const state = {
     profile: {
         posts: [
@@ -25,6 +27,20 @@ const state = {
             {id: 4, name: 'Nazar Pupkin',link: '#Nazar-Pupkin', },
         ]
     }
+}
+
+export const addPost = (postText) => {
+    let newPost = {
+        id:5,
+        message: postText,
+        likes:0
+    }
+    state.profile.posts.push(newPost)
+    renderEntireTree(state, addPost,removePost)
+}
+export const removePost = () =>{
+    state.profile.posts.pop()
+    renderEntireTree(state, addPost, removePost)
 }
 
 
