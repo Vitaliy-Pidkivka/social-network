@@ -5,14 +5,15 @@
   margin-bottom: 10px;
   a {
     text-decoration: none;
-  }
-
-  &__inner {
+    display: block;
     padding: 10px;
     border-radius: 20px;
     box-shadow: 0 0 8px black;
     box-sizing: border-box;
-    background: linear-gradient(to right, yellowgreen 10%, aqua 100%);
+    background: linear-gradient(to right, #198d56 0%,#46cd8b 10%, #46cd8b 90%, #198d56 100%);
+    &:hover{
+      background: linear-gradient(to right, #167e4c 0%, #43bf80 10%, #43bf80 90%, #167e4c 100%);
+    }
   }
 
   &__avatar {

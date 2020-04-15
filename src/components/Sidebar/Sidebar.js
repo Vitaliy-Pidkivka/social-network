@@ -16,7 +16,7 @@ const Sidebar = (props) => {
                     <li><NavLink className={styles['nav__btn']} to="/settings">Settings</NavLink></li>
                 </ul>
             </nav>
-            <FriendList/>
+            <FriendList friendList={props.sidebar.friendList}/>
         </div>
     );
 }

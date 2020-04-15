@@ -5,10 +5,7 @@ import Friend from "./Friend/Friend";
 const FriendList = (props) => {
     return (
         <div className={styles['friend-list']}>
-            <Friend/>
-            <Friend/>
-            <Friend/>
-            <Friend/>
+            {props.friendList.map((item) => <Friend {...item} key={item.id}/>)}
         </div>
     );
 }

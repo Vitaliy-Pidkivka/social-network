@@ -16,6 +16,14 @@ const state = {
             2: [{message: 'Hello, what are you doing?'}, {message: "Hi, i'm playing computer games", opponent: true},
                 {message: "How are you?", opponent: true}, {message: "I'm fine, thanks"},],
         }
+    },
+    sidebar:{
+        friendList: [
+            {id: 1, name: 'Tania Pidkivka',link: '#Tania-Pidkivka', },
+            {id: 2, name: 'Dmutro Pidkivka',link: '#Dmutro-Pidkivka', },
+            {id: 3, name: 'Oleg Pupkin', link: '#Oleg-Pupkin', },
+            {id: 4, name: 'Nazar Pupkin',link: '#Nazar-Pupkin', },
+        ]
     }
 }
 
