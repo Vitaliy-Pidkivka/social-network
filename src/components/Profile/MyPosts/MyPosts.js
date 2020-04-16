@@ -7,14 +7,16 @@ import Button from "../../Shared/Button/Button";
 const MyPosts = (props) => {
     let newPostElement = React.createRef();
     const addPost = () => {
-        let newText = newPostElement.current.value;
-        props.addPost(newText)
-        newPostElement.current.value = '';
+        props.addPost()
         newPostElement.current.focus()
     }
     const removePost= ()=> {
        props.removePost()
 
+    }
+    const onPostChange = () => {
+        let text = newPostElement.current.value;
+        props.updateNewPostText(text);
     }
 
     return (
@@ -25,7 +27,7 @@ const MyPosts = (props) => {
                 </p>
             </div>
             <div className={styles['newPost']}>
-                <textarea ref={newPostElement} type="text" name="newPost" id="newPost"/>
+                <textarea ref={newPostElement}  value={props.newPostText} onChange={onPostChange} type="text"  name="newPost" id="newPost"/>
                 <Button onClick={addPost} value="Add message" typeClass="aqua"/>
                 <Button onClick={removePost} value="Remove message" typeClass="purple"/>
             </div>

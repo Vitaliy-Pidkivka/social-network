@@ -9,7 +9,6 @@ import Message from "./Message/Message";
 
 const Dialogs = (props) => {
     const {id} = props.match.params
-    console.log(props)
     return (
         <div className={styles.dialogs}>
             <div className={styles['dialogs__items']}>

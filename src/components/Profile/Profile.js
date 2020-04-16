@@ -10,10 +10,15 @@ const Profile = (props) => {
             <div className={styles['profile__img']}>
                 <img
                     src="https://image.winudf.com/v2/image/Y29tLmhkd2Nhci5teWhhaWJpemhpX3NjcmVlbnNob3RzXzJfYjU4MjhlMQ/screen-2.jpg?fakeurl=1&type=.jpg"
-                    alt="#" />
+                    alt="#"/>
             </div>
             <ProfileInfo/>
-            <MyPosts posts={props.profile.posts} addPost={props.addPost} removePost={props.removePost}/>
+            <MyPosts posts={props.profile.posts}
+                     addPost={props.addPost}
+                     removePost={props.removePost}
+                     newPostText={props.profile.newPostText}
+                     updateNewPostText={props.updateNewPostText}
+            />
         </div>
     );
 }

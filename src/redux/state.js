@@ -6,7 +6,8 @@ const state = {
             {message: "Hi, how are you?", likes: 15},
             {message: "It's my new post", likes: 20},
             {message: "Social network in progress....", likes: 52},
-        ]
+        ],
+        newPostText: 'it-kamasutra.com',
     },
     dialogs: {
         dialogList: [
@@ -29,18 +30,24 @@ const state = {
     }
 }
 
-export const addPost = (postText) => {
+export const addPost = () => {
     let newPost = {
         id:5,
-        message: postText,
+        message: state.profile.newPostText,
         likes:0
     }
     state.profile.posts.push(newPost)
-    renderEntireTree(state, addPost,removePost)
+    state.profile.newPostText = ''
+    renderEntireTree(state, addPost,removePost, updateNewPostText)
 }
 export const removePost = () =>{
     state.profile.posts.pop()
-    renderEntireTree(state, addPost, removePost)
+    renderEntireTree(state, addPost, removePost, updateNewPostText)
+}
+
+export const updateNewPostText = (text) =>{
+    state.profile.newPostText = text;
+    renderEntireTree(state, addPost, removePost, updateNewPostText)
 }
 
 
