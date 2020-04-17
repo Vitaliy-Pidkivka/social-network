@@ -1,3 +1,7 @@
+import profileReducer from "./profileReducer";
+import dialogsReducer from "./dialogsReducer";
+import sidebarReducer from "./sidebarReducer";
+
 const store = {
 
     _state: {
@@ -16,12 +20,10 @@ const store = {
             ],
             messages: {
                 1: [{message: 'Hi how are you?'}, {message: "I'm fine and you?", opponent: true},],
-                2: [{message: 'Hello, what are you doing?'}, {
-                    message: "Hi, i'm playing computer games",
-                    opponent: true
-                },
+                2: [{message: 'Hello, what are you doing?'}, { message: "Hi, i'm playing computer games",  opponent: true },
                     {message: "How are you?", opponent: true}, {message: "I'm fine, thanks"},],
-            }
+            },
+            newMessageText: '',
         },
         sidebar: {
             friendList: [
@@ -61,25 +63,17 @@ const store = {
     },
 
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
-            let newPost = {
-                id: 5,
-                message: this._state.profile.newPostText,
-                likes: 0
-            }
-            this._state.profile.posts.push(newPost)
-            this._state.profile.newPostText = ''
-            this._callSubscriber(this._state)
-        } else if (action.type === 'REMOVE-POST') {
-            this._state.profile.posts.pop()
-            this._callSubscriber(this._state)
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-            this._state.profile.newPostText = action.text;
-            this._callSubscriber(this._state)
-        }
+        profileReducer(this._state.profile, action)
+        dialogsReducer(this._state.dialogs, action)
+        sidebarReducer(this._state.sidebar, action)
+
+        this._callSubscriber(this._state)
 
     }
 }
 
+
+
+window.store = store
 
 export default store

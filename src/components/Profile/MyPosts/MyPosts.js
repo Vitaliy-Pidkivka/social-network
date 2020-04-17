@@ -2,24 +2,23 @@ import React from 'react';
 import styles from './MyPosts.module.scss'
 import Post from "./Post/Post";
 import Button from "../../Shared/Button/Button";
+import {addPostActionCreator, onPostChangeActionCreator, removePostActionCreator} from "../../../redux/profileReducer";
 
 
 const MyPosts = (props) => {
     let newPostElement = React.createRef();
     const addPost = () => {
-        const action = {type: "ADD-POST"};
-        props.dispatch(action)
+        props.dispatch(addPostActionCreator())
         newPostElement.current.focus()
     }
     const removePost = () => {
-        const action = {type: "REMOVE-POST"};
-        props.dispatch(action)
+
+        props.dispatch(removePostActionCreator())
 
     }
     const onPostChange = () => {
         let text = newPostElement.current.value;
-        const action = {type: "UPDATE-NEW-POST-TEXT", text: text};
-        props.dispatch(action);
+        props.dispatch(onPostChangeActionCreator(text));
     }
 
     return (

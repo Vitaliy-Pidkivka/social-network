@@ -9,20 +9,20 @@ import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 
-const App = (state) => {
+const App = (store) => {
     return (
         <div className="app-wrapper">
             <Header/>
             <main className="content">
-                <Sidebar sidebar={state.state.sidebar}/>
+                <Sidebar sidebar={store.state.sidebar}/>
                 <div className="main-screen">
-                    <Route path="/profile" render={() => <Profile profile={state.state.profile}
-                                                                  dispatch={state.dispatch} />}
+                    <Route path="/profile" render={() => <Profile profile={store.state.profile}
+                                                                  dispatch={store.dispatch} />}
                     />
                     <Route path="/dialogs" exact
-                           render={(props) => <Dialogs dialogs={state.state.dialogs} {...props}/>}/>
+                           render={(props) => <Dialogs dialogs={store.state.dialogs} {...props} dispatch={store.dispatch.bind(store)}/>}/>
                     <Route path="/dialogs/:id" exact
-                           render={(props) => <Dialogs dialogs={state.state.dialogs} {...props}/>}/>
+                           render={(props) => <Dialogs dialogs={store.state.dialogs} {...props} dispatch={store.dispatch.bind(store)}/>}/>
                     <Route path="/news" component={News}/>
                     <Route path="/music" component={Music}/>
                     <Route path="/settings" component={Settings}/>
