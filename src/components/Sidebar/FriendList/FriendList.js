@@ -5,7 +5,7 @@ import Friend from "./Friend/Friend";
 const FriendList = (props) => {
     return (
         <div className={styles['friend-list']}>
-            {props.friendList.map((item) => <Friend {...item} key={item.id}/>)}
+            {props.state.friendList.map((item) => <Friend {...item} key={item.id}/>)}
         </div>
     );
 }

@@ -3,26 +3,25 @@ import './App.scss';
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Profile from "./components/Profile/Profile";
-import Dialogs from "./components/Dialogs/Dialogs";
 import {Route} from "react-router-dom";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 const App = (store) => {
     return (
         <div className="app-wrapper">
             <Header/>
             <main className="content">
-                <Sidebar sidebar={store.state.sidebar}/>
+                <Sidebar store={store.store}/>
                 <div className="main-screen">
-                    <Route path="/profile" render={() => <Profile profile={store.state.profile}
-                                                                  dispatch={store.dispatch} />}
+                    <Route path="/profile" render={() => <Profile store={store.store}/>}
                     />
                     <Route path="/dialogs" exact
-                           render={(props) => <Dialogs dialogs={store.state.dialogs} {...props} dispatch={store.dispatch.bind(store)}/>}/>
+                           render={(props) => <DialogsContainer store={store.store} {...props} />}/>
                     <Route path="/dialogs/:id" exact
-                           render={(props) => <Dialogs dialogs={store.state.dialogs} {...props} dispatch={store.dispatch.bind(store)}/>}/>
+                           render={(props) => <DialogsContainer store={store.store} {...props} />}/>
                     <Route path="/news" component={News}/>
                     <Route path="/music" component={Music}/>
                     <Route path="/settings" component={Settings}/>
