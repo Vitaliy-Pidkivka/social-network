@@ -36,25 +36,6 @@ const store = {
     },
     _callSubscriber() {
     },
-    // addPost() {
-    //     let newPost = {
-    //         id: 5,
-    //         message: this._state.profile.newPostText,
-    //         likes: 0
-    //     }
-    //         this._state.profile.posts.push(newPost)
-    //         this._state.profile.newPostText = ''
-    //     this._callSubscriber(this._state)
-    // },
-    // removePost() {
-    //     this._state.profile.posts.pop()
-    //     this._callSubscriber(this._state)
-    // },
-    // updateNewPostText(text) {
-    //     this._state.profile.newPostText = text;
-    //     this._callSubscriber(this._state)
-    // },
-
     getState() {
         return this._state
     },
@@ -68,7 +49,6 @@ const store = {
         sidebarReducer(this._state.sidebar, action)
 
         this._callSubscriber(this._state)
-
     }
 }
 

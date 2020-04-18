@@ -17,7 +17,7 @@ const Dialogs = (props) => {
     }
 
     const onAddNewMessage = ()=>{
-        props.dispatch(addMessageCreator())
+        props.dispatch(addMessageCreator(id))
     }
 
     return (

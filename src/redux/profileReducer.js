@@ -2,7 +2,19 @@ const ADD_POST = "ADD-POST";
 const REMOVE_POST = "REMOVE-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 
-const profileReducer = (state, action) => {
+
+let initialState = {
+    posts: [
+        {message: "Hi, how are you?", likes: 15},
+        {message: "It's my new post", likes: 20},
+        {message: "Social network in progress....", likes: 52},
+    ],
+    newPostText: 'social network in progress...',
+}
+
+
+
+const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             let newPost = {
