@@ -11,12 +11,10 @@ const Dialogs = (props) => {
     const onNewMessageChange = (e) => {
         let messageBody = e.target.value
         props.onNewMessageChange(messageBody)
-        // props.dispatch(onMessageChangeCreator(messageBody))
     }
 
     const onAddNewMessage = () => {
         props.onAddNewMessage(id)
-        // props.dispatch(addMessageCreator(id))
     }
 
 

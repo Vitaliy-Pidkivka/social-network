@@ -14,7 +14,7 @@ const MyPosts = (props) => {
         // props.dispatch(removePostActionCreator())
         props.removePost()
     }
-    const onPostChange = () => {
+    const onPostChange = (e) => {
         let text = newPostElement.current.value;
         // props.dispatch(onPostChangeActionCreator(text));
         props.onPostChange(text)

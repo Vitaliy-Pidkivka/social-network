@@ -29,6 +29,7 @@ const App = (store) => {
             </main>
         </div>
     )
+
 }
 
 export default App;
