@@ -26,12 +26,12 @@ let mapStateToProps = (state) => {
         state: state.dialogs
     }
 }
-let mapDispatchStateToProps = (dispatch) => {
+let mapDispatchToProps = (dispatch) => {
     return {
         onNewMessageChange : (messageBody)=> dispatch(onMessageChangeCreator(messageBody)),
         onAddNewMessage: (id)=> dispatch(addMessageCreator(id))
     }
 }
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchStateToProps)(Dialogs)
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
 export default DialogsContainer;
