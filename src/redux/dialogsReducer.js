@@ -28,10 +28,10 @@ const dialogsReducer = (state = initialState, action) => {
             let stateCopy = {...state, messages: {...state.messages}, newMessageText: ''}
             if (state.newMessageText) {
                 stateCopy.messages[action.id].push({id: 5, message:messageBody , likes: 0})
-                return stateCopy
             } else {
                 alert("You didn't write anything, please write the text")
             }
+            return stateCopy
         }
         default:
             return state

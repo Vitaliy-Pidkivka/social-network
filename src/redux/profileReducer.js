@@ -21,6 +21,7 @@ const profileReducer = (state = initialState, action) => {
                return {...state, posts: [...state.posts, {id: 5, message: messageBody, likes: 0}], newPostText: ''}
             } else {
                 alert("You didn't write anything, please write the text")
+                return state
             }
         }
         case REMOVE_POST: {
