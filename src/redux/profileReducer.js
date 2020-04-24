@@ -5,9 +5,9 @@ const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 
 let initialState = {
     posts: [
-        {message: "Hi, how are you?", likes: 15},
-        {message: "It's my new post", likes: 20},
-        {message: "Social network in progress....", likes: 52},
+        {id: 1, message: "Hi, how are you?", likes: 15},
+        {id: 2, message: "It's my new post", likes: 20},
+        {id: 3, message: "Social network in progress....", likes: 52},
     ],
     newPostText: 'social network in progress...',
 }
@@ -18,7 +18,7 @@ const profileReducer = (state = initialState, action) => {
         case ADD_POST: {
             let messageBody = state.newPostText
             if (state.newPostText) {
-               return {...state, posts: [...state.posts, {id: 5, message: messageBody, likes: 0}], newPostText: ''}
+                return {...state, posts: [...state.posts, {id: 5, message: messageBody, likes: 0}], newPostText: ''}
             } else {
                 alert("You didn't write anything, please write the text")
                 return state
@@ -30,7 +30,7 @@ const profileReducer = (state = initialState, action) => {
             return stateCopy;
         }
         case UPDATE_NEW_POST_TEXT: {
-           return {...state, newPostText: action.text}
+            return {...state, newPostText: action.text}
         }
         default:
             return state

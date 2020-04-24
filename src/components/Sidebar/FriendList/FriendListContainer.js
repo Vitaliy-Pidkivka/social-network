@@ -1,12 +1,5 @@
-// import React from 'react';
 import FriendList from "./FriendList";
 import {connect} from "react-redux";
-
-// const FriendListContainer = (props) => {
-//     return (
-//         <FriendList state={props.store.getState().sidebar}/>
-//     );
-// }
 
 let mapStateToProps = (state) =>{
     return {

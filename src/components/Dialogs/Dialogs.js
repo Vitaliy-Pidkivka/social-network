@@ -21,8 +21,8 @@ const Dialogs = (props) => {
     return (
         <div className={styles.dialogs}>
             <div className={styles['dialogs__items']}>
-                {props.state.dialogList.map((dialog, index) => (
-                    <Dialog {...dialog} key={index}/>
+                {props.state.dialogList.map((dialog) => (
+                    <Dialog {...dialog} key={dialog.id}/>
                 ))}
             </div>
             {id && <div className={styles['dialogs__messages']}>

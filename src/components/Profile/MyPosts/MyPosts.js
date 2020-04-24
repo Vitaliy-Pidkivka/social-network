@@ -33,7 +33,7 @@ const MyPosts = (props) => {
                 <Button onClick={removePost} value="Remove message" typeClass="purple"/>
             </div>
             <div className="posts">
-                {props.state.posts.map((post, index) => (<Post {...post} key={index}/>))}
+                {props.state.posts.map((post ) => (<Post {...post} key={post.id}/>))}
             </div>
         </div>
     );
