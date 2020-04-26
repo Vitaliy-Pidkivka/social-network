@@ -68,4 +68,11 @@
     font-weight: bold;
     cursor: pointer;
   }
+  &__pagination{
+    margin-bottom: 30px;
+    text-align: center;
+    span{
+      margin: 0 4px;
+    }
+  }
 }

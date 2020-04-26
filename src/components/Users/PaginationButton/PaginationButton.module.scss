@@ -1,0 +1,15 @@
+.button{
+  font-size: 17px;
+  line-height: 22px;
+  color: black;
+  cursor: pointer;
+  transition: all 180ms ease-in-out;
+  font-weight: bold;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+.current{
+  text-shadow: 1px 1px 2px  black;
+  color: aqua;
+}

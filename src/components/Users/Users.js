@@ -3,26 +3,54 @@ import styles from './Users.module.scss'
 import Button from "../Shared/Button/Button";
 import * as axios from 'axios'
 import avatarUrl from '../../assets/images/user-avatar.png'
+import PaginationButton from "./PaginationButton/PaginationButton";
 
 
 class Users extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
     componentDidMount() {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-            this.props.setUsers(response.data.items)
-        })
+        axios
+            .get(
+            `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSizes}`)
+            .then(response => {
+                console.log(response)
+                this.props.setUsers(response.data.items)
+                this.props.setTotalUsersCount(response.data.totalCount)
+            })
     }
 
+    onPageChanged = (page) => {
+        this.props.setCurrentPage(page);
+        axios
+            .get(
+                `https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSizes}`)
+            .then(response => {
+                this.props.setUsers(response.data.items)
+            })
+    }
 
     render(){
+        let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSizes);
+        const pages = [];
+        for(let i = 1; i <= pagesCount; i++){
+            pages.push(i);
+        }
+
+
         return (
             <div className={styles['users']}>
-                {!this.props.users.length && <Button onClick={this.getUsers} value="GET USERS" typeClass="aqua" className={styles['users__btn']}/>}
+                <div className={styles['users__pagination']}>
+                    {pages.map(page => {
+                        return <PaginationButton onClick={(e) => {
+                            this.onPageChanged(page)
+                        }}
+                                                 value={page}
+                                                 current={this.props.currentPage}
+                                                 page={page}/>
+                    })}
+                </div>
                 {this.props.users.map(user =>
-                    <div className={styles['user']}>
+                    <div className={styles['user']} key={user.id}>
                         <div className={styles['user__box']}>
                             <img src={user.photos.small ? user.photos.small : avatarUrl }
                                  alt="avatar"
