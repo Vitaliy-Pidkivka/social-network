@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './Post.module.scss'
-
+import userAvatar from '../../../../assets/images/user-avatar.png'
 const Post = (props) => {
     const {message,likes} = props
     return (
         <div className={styles.post}>
             <div className={styles['post__image']}>
-                <img src="https://cdn2.iconfinder.com/data/icons/men-avatars/33/man_2-512.png" alt="#"/>
+                <img src={userAvatar} alt="#"/>
             </div>
             <div className={styles['post__message']}><p>{message}</p></div>
             <div className={styles['post__likes-count']}>

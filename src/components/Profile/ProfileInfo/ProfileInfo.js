@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './ProfileInfo.module.scss'
+import userAvatar from '../../../assets/images/user-avatar.png'
 
 
 const ProfileInfo = (props) => {
     return (
         <div className={styles['profile__info']}>
-            <img src="https://cdn2.iconfinder.com/data/icons/men-avatars/33/man_2-512.png" alt="#"
+            <img src={userAvatar} alt="#"
                  className={styles.profile__avatar}/>
             <div className="profile__info-box">
                 <div className={styles['profile__name']}><p>Vitalii Pidkivka</p></div>
