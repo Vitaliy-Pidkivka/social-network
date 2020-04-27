@@ -71,6 +71,8 @@
   &__pagination{
     margin-bottom: 30px;
     text-align: center;
+    max-width: 200px;
+    overflow-x: scroll;
     span{
       margin: 0 4px;
     }

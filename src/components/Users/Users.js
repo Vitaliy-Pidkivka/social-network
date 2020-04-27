@@ -1,62 +1,40 @@
 import React from 'react'
 import styles from './Users.module.scss'
 import Button from "../Shared/Button/Button";
-import * as axios from 'axios'
 import avatarUrl from '../../assets/images/user-avatar.png'
 import PaginationButton from "./PaginationButton/PaginationButton";
 
 
-class Users extends React.Component {
+const Users = (props) => {
 
-    componentDidMount() {
-        axios
-            .get(
-            `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSizes}`)
-            .then(response => {
-                console.log(response)
-                this.props.setUsers(response.data.items)
-                this.props.setTotalUsersCount(response.data.totalCount)
-            })
+    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSizes);
+    const pages = [];
+    for (let i = 1; i <= pagesCount; i++) {
+        pages.push(i);
     }
 
-    onPageChanged = (page) => {
-        this.props.setCurrentPage(page);
-        axios
-            .get(
-                `https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSizes}`)
-            .then(response => {
-                this.props.setUsers(response.data.items)
-            })
-    }
-
-    render(){
-        let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSizes);
-        const pages = [];
-        for(let i = 1; i <= pagesCount; i++){
-            pages.push(i);
-        }
-
-
-        return (
+    return (
             <div className={styles['users']}>
                 <div className={styles['users__pagination']}>
                     {pages.map(page => {
                         return <PaginationButton onClick={(e) => {
-                            this.onPageChanged(page)
+                            props.onPageChanged(page)
                         }}
                                                  value={page}
-                                                 current={this.props.currentPage}
+                                                 current={props.currentPage}
                                                  page={page}/>
                     })}
                 </div>
-                {this.props.users.map(user =>
+                {props.users.map(user =>
                     <div className={styles['user']} key={user.id}>
                         <div className={styles['user__box']}>
                             <img src={user.photos.small ? user.photos.small : avatarUrl }
                                  alt="avatar"
                                  className={styles['user__avatar']}/>
                             <Button value={user.followed ? 'Unfollow' : 'Follow'}
-                                    onClick={user.followed ? () => {this.props.unfollow(user.id) } : () => { this.props.follow(user.id) }}
+                                    onClick={
+                                        user.followed  ? () => {props.unfollow(user.id) } : () => { props.follow(user.id) }
+                                    }
                                     sizeClass="small"
                                     typeClass="purple"
                                     className={styles['user__btn']}/>
@@ -70,10 +48,9 @@ class Users extends React.Component {
                             <p className={styles['user__country']}>{"user.location.country"}</p>
                         </div>
                     </div>)}
-                {this.props.users.length && <Button value="SHOW MORE" typeClass="aqua" className={styles['users__btn']}/>}
+                {props.users.length && <Button value="SHOW MORE" typeClass="aqua" className={styles['users__btn']}/>}
             </div>
         )
-    }
 }
 
 
