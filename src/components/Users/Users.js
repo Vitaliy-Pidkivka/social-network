@@ -3,6 +3,7 @@ import styles from './Users.module.scss'
 import Button from "../Shared/Button/Button";
 import avatarUrl from '../../assets/images/user-avatar.png'
 import PaginationButton from "./PaginationButton/PaginationButton";
+import Preloader from "../Shared/Preloader/Preloader";
 
 
 const Users = (props) => {
@@ -15,6 +16,7 @@ const Users = (props) => {
 
     return (
             <div className={styles['users']}>
+                {props.isFetching &&  <Preloader className={styles['users__preloader']}/>}
                 <div className={styles['users__pagination']}>
                     {pages.map(page => {
                         return <PaginationButton onClick={(e) => {
@@ -48,7 +50,7 @@ const Users = (props) => {
                             <p className={styles['user__country']}>{"user.location.country"}</p>
                         </div>
                     </div>)}
-                {props.users.length && <Button value="SHOW MORE" typeClass="aqua" className={styles['users__btn']}/>}
+                {/*{props.users.length && <Button value="SHOW MORE" typeClass="aqua" className={styles['users__btn']}/>}*/}
             </div>
         )
 }
