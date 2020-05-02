@@ -4,9 +4,33 @@
   box-shadow: 1px 1px 4px black;
   background-color: #a6bdb5;
   padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   img {
     max-width: 60px;
   }
+
+  .auth{
+    a{
+      display: block;
+      color: black;
+      text-decoration: none;
+      &:hover{
+        color: white;
+      }
+      &:active{
+        transform: scale(0.9);
+      }
+    }
+  }
+  .login{
+    font-family: 'HistoriaDemo';
+    font-size: 38px;
+    line-height: 100%;
+    text-transform: capitalize;
+  }
+
 
 }
