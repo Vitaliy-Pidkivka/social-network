@@ -2,13 +2,13 @@ import React from 'react';
 import './App.scss';
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Profile from "./components/Profile/Profile";
 import {Route} from "react-router-dom";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 
 const App = (store) => {
     return (
@@ -17,7 +17,7 @@ const App = (store) => {
             <main className="content">
                 <Sidebar store={store.store}/>
                 <div className="main-screen">
-                    <Route path="/profile" render={() => <Profile store={store.store}/>}
+                    <Route path="/profile/:userId?" exact render={() => <ProfileContainer store={store.store}/>}
                     />
                     <Route path="/dialogs" exact
                            render={(props) => <DialogsContainer store={store.store} {...props} />}/>

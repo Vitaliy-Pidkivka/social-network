@@ -4,6 +4,7 @@ import Button from "../Shared/Button/Button";
 import avatarUrl from '../../assets/images/user-avatar.png'
 import PaginationButton from "./PaginationButton/PaginationButton";
 import Preloader from "../Shared/Preloader/Preloader";
+import {NavLink} from "react-router-dom";
 
 
 const Users = (props) => {
@@ -42,7 +43,7 @@ const Users = (props) => {
                                     className={styles['user__btn']}/>
                         </div>
                         <div className={styles['user__box']}>
-                            <h3 className={styles['user__name']}> {user.name}</h3>
+                         <NavLink to={'/profile/' + user.id}> <h3 className={styles['user__name']}> {user.name}</h3> </NavLink>
                             <p className={styles['user__status']}>{user.status ? user.status : 'status will be here'}</p>
                         </div>
                         <div className={styles['user__box']}>
