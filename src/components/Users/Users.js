@@ -5,6 +5,8 @@ import avatarUrl from '../../assets/images/user-avatar.png'
 import PaginationButton from "./PaginationButton/PaginationButton";
 import Preloader from "../Shared/Preloader/Preloader";
 import {NavLink} from "react-router-dom";
+import * as axios from "axios";
+import {usersApi} from "../../api/api";
 
 
 const Users = (props) => {
@@ -36,7 +38,24 @@ const Users = (props) => {
                                  className={styles['user__avatar']}/>
                             <Button value={user.followed ? 'Unfollow' : 'Follow'}
                                     onClick={
-                                        user.followed  ? () => {props.unfollow(user.id) } : () => { props.follow(user.id) }
+                                        user.followed
+                                            ? () => {
+                                                usersApi.unfollow(user.id)
+                                                    .then(data => {
+                                                        if (data.resultCode === 0) {
+                                                            props.unfollow(user.id)
+                                                        }
+                                                    })
+                                            }
+                                            : () => {
+                                                usersApi.follow(user.id)
+                                                    .then(data => {
+                                                        if (data.resultCode === 0) {
+                                                            props.follow(user.id)
+                                                        }
+                                                    })
+
+                                            }
                                     }
                                     sizeClass="small"
                                     typeClass="purple"
