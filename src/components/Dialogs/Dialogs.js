@@ -3,6 +3,7 @@ import styles from './Dialogs.module.scss'
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
 import Button from "../Shared/Button/Button";
+import {Redirect} from "react-router-dom";
 
 
 const Dialogs = (props) => {
@@ -16,9 +17,8 @@ const Dialogs = (props) => {
     const onAddNewMessage = () => {
         props.onAddNewMessage(id)
     }
-
-
-    return (
+    if(!props.isAuth) return <Redirect to='/login'/>
+     return (
         <div className={styles.dialogs}>
             <div className={styles['dialogs__items']}>
                 {props.state.dialogList.map((dialog) => (

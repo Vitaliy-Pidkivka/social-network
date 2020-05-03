@@ -9,6 +9,7 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/login";
 
 const App = (store) => {
     return (
@@ -19,14 +20,13 @@ const App = (store) => {
                 <div className="main-screen">
                     <Route path="/profile/:userId?" exact render={() => <ProfileContainer store={store.store}/>}
                     />
-                    <Route path="/dialogs" exact
-                           render={(props) => <DialogsContainer store={store.store} {...props} />}/>
-                    <Route path="/dialogs/:id" exact
+                    <Route path="/dialogs/:id?"
                            render={(props) => <DialogsContainer store={store.store} {...props} />}/>
                     <Route path="/news" component={News}/>
                     <Route path="/music" component={Music}/>
                     <Route path="/users" render={()=> <UsersContainer />}/>
                     <Route path="/settings" component={Settings}/>
+                    <Route path="/login" exact component={Login}/>
                 </div>
             </main>
         </div>

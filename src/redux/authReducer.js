@@ -27,7 +27,7 @@ const authReducer = (state = initialState, action) => {
 
 export const setAuthUserData = (id, email, login) => ({type: SET_AUTH_USER_DATA, data:{userId: id, email, login}});
 //redux-thunk
-export const  auth = () => {
+export const  getAuthUserData = () => {
     return (dispatch) =>{
         authApi.login()
             .then(data => {

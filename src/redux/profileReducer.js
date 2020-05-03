@@ -1,3 +1,5 @@
+import {profileApi} from "../api/api";
+
 const ADD_POST = "ADD-POST";
 const REMOVE_POST = "REMOVE-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
@@ -46,8 +48,18 @@ export const addPostActionCreator = () => ({type: ADD_POST});
 export const removePostActionCreator = () => ({type: REMOVE_POST});
 export const onPostChangeActionCreator = (text) => (
     {type: UPDATE_NEW_POST_TEXT, text: text}
-);export const setUserProfile = (profile) => (
+);
+export const setUserProfile = (profile) => (
     {type: SET_USER_PROFILE, profile}
 );
+//redux-thunk
+export const setProfile = (userId) => (dispatch) => {
+    profileApi.getProfile(userId)
+        .then(response => {
+            dispatch(setUserProfile(response.data))
+        })
+
+}
+
 
 export default profileReducer;
