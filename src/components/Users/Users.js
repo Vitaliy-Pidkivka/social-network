@@ -5,7 +5,6 @@ import avatarUrl from '../../assets/images/user-avatar.png'
 import PaginationButton from "./PaginationButton/PaginationButton";
 import Preloader from "../Shared/Preloader/Preloader";
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
 import {usersApi} from "../../api/api";
 
 
@@ -16,7 +15,6 @@ const Users = (props) => {
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }
-
     return (
             <div className={styles['users']}>
                 {props.isFetching &&  <Preloader className={styles['users__preloader']}/>}
@@ -36,30 +34,35 @@ const Users = (props) => {
                             <img src={user.photos.small ? user.photos.small : avatarUrl }
                                  alt="avatar"
                                  className={styles['user__avatar']}/>
+                            { !props.followingInProgress.some(id => id === user.id) &&
                             <Button value={user.followed ? 'Unfollow' : 'Follow'}
-                                    onClick={
-                                        user.followed
-                                            ? () => {
-                                                usersApi.unfollow(user.id)
-                                                    .then(data => {
-                                                        if (data.resultCode === 0) {
-                                                            props.unfollow(user.id)
-                                                        }
-                                                    })
-                                            }
-                                            : () => {
-                                                usersApi.follow(user.id)
-                                                    .then(data => {
-                                                        if (data.resultCode === 0) {
-                                                            props.follow(user.id)
-                                                        }
-                                                    })
+                                        onClick={
+                                            user.followed
+                                                ? () => {
+                                                    props.toggleFollowingProgress(true,user.id)
+                                                    usersApi.unfollow(user.id)
+                                                        .then(data => {
+                                                            if (data.resultCode === 0) {
+                                                                props.unfollow(user.id)
+                                                            }
+                                                            props.toggleFollowingProgress(false,user.id)
+                                                        })
+                                                }
+                                                : () => {
+                                                    props.toggleFollowingProgress(true, user.id)
+                                                    usersApi.follow(user.id)
+                                                        .then(data => {
+                                                            if (data.resultCode === 0) {
+                                                                props.follow(user.id)
+                                                            }
+                                                            props.toggleFollowingProgress(false, user.id)
+                                                        })
 
-                                            }
-                                    }
-                                    sizeClass="small"
-                                    typeClass="purple"
-                                    className={styles['user__btn']}/>
+                                                }
+                                        }
+                                        sizeClass="small"
+                                        typeClass="purple"
+                                        className={styles['user__btn']}/>}
                         </div>
                         <div className={styles['user__box']}>
                          <NavLink to={'/profile/' + user.id}> <h3 className={styles['user__name']}> {user.name}</h3> </NavLink>
@@ -70,7 +73,6 @@ const Users = (props) => {
                             <p className={styles['user__country']}>{"user.location.country"}</p>
                         </div>
                     </div>)}
-                {/*{props.users.length && <Button value="SHOW MORE" typeClass="aqua" className={styles['users__btn']}/>}*/}
             </div>
         )
 }
