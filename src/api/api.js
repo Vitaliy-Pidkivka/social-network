@@ -9,13 +9,9 @@ const instance = axios.create({
 })
 
 export const usersApi = {
-    getUsers1(currentPage = 1, pageSizes = 10) {
-       return instance.get(`users?page=${currentPage}&count=${pageSizes}`)
-            .then(response => response.data)
-    },
-    getUsers2(page, pageSizes) {
+    getUsers(currentPage = 1, pageSizes = 10) {
        return instance.get(
-            `users?page=${page}&count=${pageSizes}`)
+           `users?page=${currentPage}&count=${pageSizes}`)
             .then(response => response.data)
     },
     unfollow(userId) {
