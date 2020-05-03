@@ -91,8 +91,7 @@ export const toggleFollowingProgress = (isFetching, userId) => ({
     isFetching: isFetching,
     userId
 });
-
-
+// redux-thunk
 export const getUsers = (currentPage, pageSizes) => {
     return (dispatch) => {
         dispatch(toggleIsFetching(true))

@@ -25,3 +25,11 @@ export const usersApi = {
             .then(response => response.data)
     }
 }
+
+
+export const authApi = {
+    login(){
+        return instance.get(`auth/me`)
+            .then(response => response.data)
+    }
+}

@@ -5,7 +5,6 @@ import avatarUrl from '../../assets/images/user-avatar.png'
 import PaginationButton from "./PaginationButton/PaginationButton";
 import Preloader from "../Shared/Preloader/Preloader";
 import {NavLink} from "react-router-dom";
-import {usersApi} from "../../api/api";
 
 
 const Users = (props) => {
