@@ -17,7 +17,6 @@ const Dialogs = (props) => {
     const onAddNewMessage = () => {
         props.onAddNewMessage(id)
     }
-    if(!props.isAuth) return <Redirect to='/login'/>
      return (
         <div className={styles.dialogs}>
             <div className={styles['dialogs__items']}>
