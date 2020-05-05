@@ -3,7 +3,6 @@ import styles from './Dialogs.module.scss'
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
 import Button from "../Shared/Button/Button";
-import {Redirect} from "react-router-dom";
 
 
 const Dialogs = (props) => {

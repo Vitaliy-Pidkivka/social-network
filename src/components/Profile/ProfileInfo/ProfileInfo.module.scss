@@ -31,16 +31,22 @@
   &__name {
     font-size: 30px;
     line-height: 36px;
+    margin-top: -6px;
+    text-transform: uppercase;
   }
 
-  &__date {
-  }
+  &__status {
+    cursor: pointer;
 
-  &__education {
+    &-input {
+      border-radius: 4px;
+      outline: none;
+      padding: 4px 5px;
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 2px black;
+      }
+    }
   }
-
-  &__site {
-  }
-
 
 }
