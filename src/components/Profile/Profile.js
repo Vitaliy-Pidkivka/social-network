@@ -11,7 +11,7 @@ const Profile = (props) => {
                     src="https://image.winudf.com/v2/image/Y29tLmhkd2Nhci5teWhhaWJpemhpX3NjcmVlbnNob3RzXzJfYjU4MjhlMQ/screen-2.jpg?fakeurl=1&type=.jpg"
                     alt="#"/>
             </div>
-            <ProfileInfo  profile={props.profile}/>
+            <ProfileInfo updateStatus={props.updateStatus} status={props.status} profile={props.profile}/>
             <MyPostsContainer store={props.store} />
         </div>
     );

@@ -5,7 +5,8 @@ import styles from './ProfileInfo.module.scss'
 class ProfileStatus extends React.Component {
 
     state = {
-        editMode: false
+        editMode: false,
+        status: this.props.status
     }
     activateEditMode = ()=>{
         this.setState({
@@ -16,14 +17,23 @@ class ProfileStatus extends React.Component {
         this.setState({
             editMode:false,
         })
+        this.props.updateStatus(this.state.status)
     }
+    onChangeInputValue = (e)=>{
+        this.setState({
+            status: e.currentTarget.value
+        })
+    }
+
     render() {
         return (
             <div className={styles.profile__status}>
-                {!this.state.editMode && <p onDoubleClick={this.activateEditMode}>{this.props.aboutMe}</p>}
+                {!this.state.editMode && <p onDoubleClick={this.activateEditMode}>{this.props.status || '---'}</p>}
                 {this.state.editMode && <input onBlur={this.disableActiveMode} type="text"
                                                className={styles['profile__status-input']}
                                                autoFocus={true}
+                                               onChange={this.onChangeInputValue}
+                                               value={this.state.status}
                 />}
             </div>
         )
