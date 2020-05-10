@@ -3,24 +3,29 @@ import styles from './ProfileInfo.module.scss'
 
 
 class ProfileStatus extends React.Component {
-
     state = {
         editMode: false,
         status: this.props.status
-
+    }
+    componentDidUpdate(prevProps, prevState) {
+       if(prevProps.status !== this.props.status){
+           this.setState({
+               status: this.props.status
+           })
+       }
     }
     activateEditMode = ()=>{
         this.setState({
             editMode:true,
         })
-        this.props.updateStatus(this.state.status)
     }
     disableActiveMode = ()=>{
         this.setState({
             editMode:false,
         })
+        this.props.updateStatus(this.state.status)
     }
-    onChangeInputValue = (e)=>{
+    onChangeInputValue = (e) =>{
         this.setState({
             status: e.currentTarget.value
         })
