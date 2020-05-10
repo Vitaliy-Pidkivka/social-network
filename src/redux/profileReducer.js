@@ -6,7 +6,6 @@ const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SET_USER_PROFILE = "SET-USER-PROFILE";
 const SET_USER_STATUS = "SET-USER-STATUS";
 
-
 let initialState = {
     posts: [
         {id: 1, message: "Hi, how are you?", likes: 15},
@@ -43,8 +42,10 @@ const profileReducer = (state = initialState, action) => {
         }
         case SET_USER_STATUS: {
             debugger
-            return {...state,
-                status: action.status}
+            return {
+                ...state,
+                status: action.status
+            }
         }
         default:
             return state
@@ -79,6 +80,20 @@ export const updateStatus = (status) => (dispatch) => {
     profileApi.updateUserStatus(status)
         .then(response => {
             if(response.data.resultCode === 0){
+                dispatch(setUserStatus(status))
+            }
+        })
+}
+export const getStatus = (userId) => (dispatch) => {
+    profileApi.getUserStatus(userId)
+        .then(response => {
+            dispatch(setUserStatus(response.data))
+        })
+}
+export const updateStatus = (status) => (dispatch) => {
+    profileApi.updateUserStatus(status)
+        .then(response => {
+            if (response.data.resultCode === 0) {
                 dispatch(setUserStatus(status))
             }
         })
