@@ -6,6 +6,7 @@ const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SET_USER_PROFILE = "SET-USER-PROFILE";
 const SET_USER_STATUS = "SET-USER-STATUS";
 
+
 let initialState = {
     posts: [
         {id: 1, message: "Hi, how are you?", likes: 15},
@@ -68,20 +69,6 @@ export const setProfile = (userId) => (dispatch) => {
     profileApi.getProfile(userId)
         .then(response => {
             dispatch(setUserProfile(response.data))
-        })
-}
-export const getStatus = (userId) => (dispatch) => {
-    profileApi.getUserStatus(userId)
-        .then(response => {
-            dispatch(setUserStatus(response.data))
-        })
-}
-export const updateStatus = (status) => (dispatch) => {
-    profileApi.updateUserStatus(status)
-        .then(response => {
-            if(response.data.resultCode === 0){
-                dispatch(setUserStatus(status))
-            }
         })
 }
 export const getStatus = (userId) => (dispatch) => {

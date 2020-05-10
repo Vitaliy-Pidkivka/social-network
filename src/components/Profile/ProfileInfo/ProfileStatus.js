@@ -7,6 +7,7 @@ class ProfileStatus extends React.Component {
     state = {
         editMode: false,
         status: this.props.status
+
     }
     activateEditMode = ()=>{
         this.setState({
@@ -18,14 +19,12 @@ class ProfileStatus extends React.Component {
         this.setState({
             editMode:false,
         })
-        this.props.updateStatus(this.state.status)
     }
     onChangeInputValue = (e)=>{
         this.setState({
             status: e.currentTarget.value
         })
     }
-
     render() {
         return (
             <div className={styles.profile__status}>
