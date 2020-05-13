@@ -4,11 +4,19 @@ import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
 import Button from "../Shared/Button/Button";
 import {Field, reduxForm} from "redux-form";
+import CustomField from "../Shared/CustomFIeld/CustomField";
+import {maxLength, required} from "../../utils/validators/validators";
 
-
+let maxLength80 = maxLength(80)
 const AddNewMessageForm = (props) => {
     return <form onSubmit={props.handleSubmit}>
-        <Field name={'newMessageBody'} component={'textarea'} placeholder="Send your message..."/>
+        <Field name={'newMessageBody'}
+               types={'textarea'}
+               validate={[required, maxLength80]}
+               component={CustomField}
+               placeholder="Send your message..."
+               id={'newMessageBody'}
+        />
         <Button onClick={props.handleSubmit}
                 type={'submit'}
                 value={"Send"}
@@ -22,7 +30,7 @@ const Dialogs = (props) => {
     const {id} = props.match.params
 
     const addNewMessage = (values) => {
-        props.addMessage(id,values.newMessageBody)
+        props.addMessage(id, values.newMessageBody)
     }
 
     return (
@@ -36,7 +44,7 @@ const Dialogs = (props) => {
                 {(props.state.messages[id] || []).map((item, index) => (
                     <Message {...item} key={index}/>
                 ))}
-                <AddNewMessageReduxForm  onSubmit={addNewMessage}/>
+                <AddNewMessageReduxForm onSubmit={addNewMessage}/>
             </div>}
         </div>
     )

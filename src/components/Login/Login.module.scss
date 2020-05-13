@@ -16,23 +16,12 @@ display: flex;
     }
 
     input {
-      margin-bottom: 10px;
-      width: 100%;
-      padding: 10px;
-      font-size: 20px;
-      line-height: 24px;
-      border-radius: 4px;
-      border: none;
 
       &[type='checkbox'] {
         width: 15px;
         height: 15px;
         margin: 0;
         cursor: pointer;
-      }
-
-      &:focus {
-        box-shadow: 0 0 2px #1be1ef;
       }
     }
 

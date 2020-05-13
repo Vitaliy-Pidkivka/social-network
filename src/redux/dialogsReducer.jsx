@@ -18,7 +18,6 @@ const dialogsReducer = (state = initialState, action) => {
         case ADD_MESSAGE: {
             let stateCopy = {...state, messages: {...state.messages}}
             stateCopy.messages[action.id].push({id: 5, message: action.messageBody, likes: 0})
-            debugger
             return stateCopy
         }
         default:
