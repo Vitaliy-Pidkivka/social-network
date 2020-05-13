@@ -3,20 +3,29 @@ import styles from './Dialogs.module.scss'
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
 import Button from "../Shared/Button/Button";
+import {Field, reduxForm} from "redux-form";
 
+
+const AddNewMessageForm = (props) => {
+    return <form onSubmit={props.handleSubmit}>
+        <Field name={'newMessageBody'} component={'textarea'} placeholder="Send your message..."/>
+        <Button onClick={props.handleSubmit}
+                type={'submit'}
+                value={"Send"}
+                typeClass="aqua" sizeClass="small"
+                className={styles["dialogs__btn"]}/>
+    </form>
+}
+const AddNewMessageReduxForm = reduxForm({form: 'AddNewMessageForm'})(AddNewMessageForm)
 
 const Dialogs = (props) => {
     const {id} = props.match.params
 
-    const onNewMessageChange = (e) => {
-        let messageBody = e.target.value
-        props.onNewMessageChange(messageBody)
+    const addNewMessage = (values) => {
+        props.addMessage(id,values.newMessageBody)
     }
 
-    const onAddNewMessage = () => {
-        props.onAddNewMessage(id)
-    }
-     return (
+    return (
         <div className={styles.dialogs}>
             <div className={styles['dialogs__items']}>
                 {props.state.dialogList.map((dialog) => (
@@ -27,10 +36,7 @@ const Dialogs = (props) => {
                 {(props.state.messages[id] || []).map((item, index) => (
                     <Message {...item} key={index}/>
                 ))}
-                <textarea onChange={onNewMessageChange} value={props.state.newMessageText}
-                          placeholder="Send your message..."/>
-                <Button onClick={onAddNewMessage} value={'Send'} typeClass="aqua" sizeClass="small"
-                        className={styles['dialogs__btn']}/>
+                <AddNewMessageReduxForm  onSubmit={addNewMessage}/>
             </div>}
         </div>
     )

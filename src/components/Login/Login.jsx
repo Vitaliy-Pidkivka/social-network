@@ -6,7 +6,7 @@ const LoginForm = (props) => {
     const {handleSubmit} = props
     return (
         <form onSubmit={handleSubmit}>
-            <Field placeholder={'Login'} name={'login'} component={'input'} type='text'/>
+            <Field placeholder={'Email'} name={'email'} component={'input'} type='text'/>
             <Field placeholder={'Password'} name={'password'} component={'input'} type='password'/>
             <div className={styles['input-group']}>
                 <Field name={'rememberMe'} component={'input'} type='checkbox' id='rememberMe'/>
@@ -18,9 +18,8 @@ const LoginForm = (props) => {
 }
 const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
 
-const Login = () => {
+const Login = (props) => {
     let submit = (formData) => {
-        console.log(formData)
     }
     return (
         <div className={styles.login}>

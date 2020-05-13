@@ -9,7 +9,6 @@ const ProfileInfo = (props) => {
         return <Preloader/>
     }
     return (
-
         <div className={styles['profile__info']}>
             <img src={props.profile.photos.small} alt="#"
                  className={styles.profile__avatar}/>

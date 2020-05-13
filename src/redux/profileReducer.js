@@ -2,7 +2,6 @@ import {profileApi} from "../api/api";
 
 const ADD_POST = "ADD-POST";
 const REMOVE_POST = "REMOVE-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SET_USER_PROFILE = "SET-USER-PROFILE";
 const SET_USER_STATUS = "SET-USER-STATUS";
 
@@ -13,7 +12,6 @@ let initialState = {
         {id: 2, message: "It's my new post", likes: 20},
         {id: 3, message: "Social network in progress....", likes: 52},
     ],
-    newPostText: 'social network in progress...',
     profile: null,
     status: '',
 }
@@ -22,9 +20,8 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST: {
-            let messageBody = state.newPostText
-            if (state.newPostText) {
-                return {...state, posts: [...state.posts, {id: 5, message: messageBody, likes: 0}], newPostText: ''}
+            if (action.newPostBody) {
+                return {...state, posts: [...state.posts, {id: 5, message: action.newPostBody, likes: 0}],}
             } else {
                 alert("You didn't write anything, please write the text")
                 return state
@@ -35,14 +32,10 @@ const profileReducer = (state = initialState, action) => {
             stateCopy.posts.pop()
             return stateCopy;
         }
-        case UPDATE_NEW_POST_TEXT: {
-            return {...state, newPostText: action.text}
-        }
         case SET_USER_PROFILE: {
             return {...state, profile: action.profile}
         }
         case SET_USER_STATUS: {
-            debugger
             return {
                 ...state,
                 status: action.status
@@ -53,11 +46,8 @@ const profileReducer = (state = initialState, action) => {
     }
 }
 
-export const addPostActionCreator = () => ({type: ADD_POST});
-export const removePostActionCreator = () => ({type: REMOVE_POST});
-export const onPostChangeActionCreator = (text) => (
-    {type: UPDATE_NEW_POST_TEXT, text: text}
-);
+export const addPost = (newPostBody) => ({type: ADD_POST, newPostBody});
+export const removePost = () => ({type: REMOVE_POST});
 export const setUserProfile = (profile) => (
     {type: SET_USER_PROFILE, profile}
 );
@@ -85,6 +75,5 @@ export const updateStatus = (status) => (dispatch) => {
             }
         })
 }
-
 
 export default profileReducer;

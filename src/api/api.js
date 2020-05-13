@@ -26,12 +26,11 @@ export const usersApi = {
     }
 }
 
-
 export const authApi = {
     login(){
         return instance.get(`auth/me`)
             .then(response => response.data)
-    }
+    },
 }
 
 export const profileApi = {
@@ -50,3 +49,4 @@ export const profileApi = {
         )
     },
 }
+

@@ -1,4 +1,4 @@
-import {addMessageCreator, onMessageChangeCreator} from "../../redux/dialogsReducer";
+import {addMessage} from "../../redux/dialogsReducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
@@ -10,14 +10,7 @@ let mapStateToProps = (state) => {
         state: state.dialogs,
     }
 }
-let mapDispatchToProps = (dispatch) => {
-    return {
-        onNewMessageChange : (messageBody)=> dispatch(onMessageChangeCreator(messageBody)),
-        onAddNewMessage: (id)=> dispatch(addMessageCreator(id))
-    }
-}
-
 export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
+    connect(mapStateToProps, {addMessage}),
     withAuthRedirect
 )(Dialogs);
