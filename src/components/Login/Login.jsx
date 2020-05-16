@@ -34,11 +34,11 @@ const LoginForm = (props) => {
 const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
 
 const Login = (props) => {
-    let submit = (formData) => {
-        props.login(formData.email, formData.password, formData.rememberMe)
-    }
     if(props.isAuth){
         return <Redirect to='/profile'/>
+    }
+    let submit = (formData) => {
+        props.login(formData.email, formData.password, formData.rememberMe)
     }
     return (
         <div className={styles.login}>
