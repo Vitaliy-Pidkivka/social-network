@@ -15,7 +15,7 @@
 
       &:hover {
         color: #595dcb;
-        text-shadow: 1px 1px 0px #595dcb;
+        text-shadow: 1px 1px 0 #595dcb;
       }
     }
   }
@@ -29,6 +29,8 @@
   }
 
   &__name {
+    font-family: 'HistoriaDemo';
+    letter-spacing: 3px;
     font-size: 30px;
     line-height: 36px;
     margin-top: -6px;

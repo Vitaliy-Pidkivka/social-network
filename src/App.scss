@@ -8,15 +8,15 @@
 }
 
 
-
-
 // default
 *, *::before, *::after {
   box-sizing: border-box;
 }
-body,html{
+
+body, html {
   box-sizing: border-box;
 }
+
 // app
 .app-wrapper {
   display: flex;
@@ -36,5 +36,6 @@ body,html{
   flex: 0 1 75%;
   flex-grow: 1;
   background-color: #d5d5d5;
+  background: linear-gradient(90deg, #1bc1c7 10%, #0e94d2 70%, #1bc1c7 100%);
 }
 

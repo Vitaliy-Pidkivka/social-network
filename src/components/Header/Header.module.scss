@@ -2,30 +2,48 @@
   top: 0;
   left: 0;
   box-shadow: 1px 1px 4px black;
-  background-color: #a6bdb5;
+  background: linear-gradient(40deg, #1bc1c7 10%, #0e94d2 70%, #1bc1c7 100%);
   padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 27;
 
   img {
-    max-width: 60px;
+    max-width: 90px;
   }
 
-  .auth{
-    a{
-      display: block;
-      color: black;
+  .auth {
+    a {
+      background-color: aqua;
+      padding: 4px 10px;
+      border: none;
+      outline: none;
+      box-shadow: 0 0 4px black;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 14px;
+      line-height: 18px;
       text-decoration: none;
-      &:hover{
-        color: white;
+      display: block;
+
+
+      &:hover {
+        background-color: #09e4e6;
       }
-      &:active{
-        transform: scale(0.9);
+
+      &:active {
+        transform: scale(0.95);
+        color: black;
       }
+
     }
   }
-  .login{
+
+  .login {
     font-family: 'HistoriaDemo';
     font-size: 38px;
     line-height: 100%;

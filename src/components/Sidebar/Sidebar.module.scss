@@ -1,8 +1,9 @@
 .sidebar {
   padding: 20px;
   flex: 0 1 260px;
-  box-shadow: 1px 1px 4px black;
-  background-color: #728980;
+  background: linear-gradient(to bottom, #2a280e 10%, #0e94d2 70%, #1bc1c7 100%);
+  box-shadow: 0 0 10px black;
+  z-index: 14;
 }
 
 .nav {
@@ -10,7 +11,7 @@
   &__btn {
     &.active {
       font-weight: bold;
-      text-shadow: 3px 3px 0px black;
+      text-shadow: 3px 3px 0 black;
     }
   }
 

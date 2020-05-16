@@ -22,9 +22,11 @@
   &:active {
     transform: scale(0.95);
   }
-  &.aqua{
+
+  &.aqua {
     background-color: aqua;
-    &:hover{
+
+    &:hover {
       background-color: #09e4e6;
     }
 

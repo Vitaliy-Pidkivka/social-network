@@ -1,31 +1,41 @@
-.post{
-  padding: 20px;
+.post {
+  padding: 15px 20px;
   border: 1px solid white;
-    margin-top: 10px;
-  &__image{
+  margin-top: 10px;
+
+  &__image {
     margin-right: 15px;
-    img{
+
+    img {
       border-radius: 50%;
       width: 40px;
       height: 40px;
     }
   }
-  &__message{
+
+  &__message {
     margin-top: 5px;
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 16px;
+    line-height: 20px;
     color: white;
     word-break: break-all;
+
+    p {
+      margin: 0
+    }
   }
-  &__likes-count{
+
+  &__likes-count {
     color: white;
-    margin-top: 20px;
-    span{
+    margin-top: 5px;
+
+    span {
       margin-right: 10px;
     }
   }
-  &__likes-btn{
-    img{
+
+  &__likes-btn {
+    img {
       max-width: 13px;
     }
   }

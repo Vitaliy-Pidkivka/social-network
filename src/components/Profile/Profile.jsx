@@ -2,13 +2,13 @@ import React from 'react';
 import styles from './Profile.module.scss'
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
-
+import profileBg from '../../assets/images/bg-profile.jpg'
 const Profile = (props) => {
     return (
         <div className={styles['profile']}>
             <div className={styles['profile__img']}>
                 <img
-                    src="https://image.winudf.com/v2/image/Y29tLmhkd2Nhci5teWhhaWJpemhpX3NjcmVlbnNob3RzXzJfYjU4MjhlMQ/screen-2.jpg?fakeurl=1&type=.jpg"
+                    src={profileBg}
                     alt="#"/>
             </div>
             <ProfileInfo updateStatus={props.updateStatus} status={props.status}  profile={props.profile}/>
