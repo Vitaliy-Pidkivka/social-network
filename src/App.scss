@@ -6,15 +6,30 @@
   font-weight: normal;
   font-style: italic;
 }
-
+@font-face {
+  font-family: 'Smeshariki';
+  src: url('./assets/fonts/Smeshariki2007Fixed-Regular.woff2') format('woff2'),
+  url('./assets/fonts/Smeshariki2007Fixed-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OgoweyDemo';
+  src: url('./assets/fonts/OgoweyDemoRegular.woff2') format('woff2'),
+  url('./assets/fonts/OgoweyDemoRegular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 // default
 *, *::before, *::after {
   box-sizing: border-box;
+
 }
 
 body, html {
   box-sizing: border-box;
+  font-family: cursive;
 }
 
 // app

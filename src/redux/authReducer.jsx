@@ -1,10 +1,11 @@
 import {authApi} from "../api/api";
+import {stopSubmit} from "redux-form";
 
 const SET_AUTH_USER_DATA = "SET-AUTH-USER-DATA";
 
 
 let initialState = {
-    id: null,
+    userId: null,
     email: null,
     login: null,
     isAuth: false,
@@ -25,9 +26,10 @@ const authReducer = (state = initialState, action) => {
     }
 }
 
-export const setAuthUserData = (id, email, login, isAuth) => ({
+export const setAuthUserData = (userId, email, login, isAuth) => ({
+
     type: SET_AUTH_USER_DATA,
-    payload: {id, email, login, isAuth}
+    payload: {userId, email, login, isAuth}
 });
 //redux-thunk
 export const getAuthUserData = () => {
@@ -47,6 +49,12 @@ export const login = (email, password, rememberMe) => {
         .then(data => {
             if (data.resultCode === 0) {
                 dispatch(getAuthUserData())
+            } else{
+                let errorMessage = 'Common error'
+                if (data.messages.length > 0){
+                    errorMessage = data.messages
+                }
+                dispatch(stopSubmit('login',{_error: errorMessage}))
             }
         })
 

@@ -2,7 +2,7 @@
   &.error {
     textarea, input {
       box-shadow: 0 0 10px red;
-
+border: 2px solid red;
       &:focus {
         box-shadow: 0 0 10px red;
         outline: none !important;
@@ -48,9 +48,10 @@
   > div {
     margin-top: 3px;
     margin-bottom: 20px;
-    color: red;
+    color: #fd6161;
     font-weight: bold;
     text-transform: uppercase;
+    text-shadow: 0 1px 4px black;
     font-size: 14px;
     letter-spacing: 2px;
   }

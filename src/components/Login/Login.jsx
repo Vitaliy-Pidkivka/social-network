@@ -6,6 +6,7 @@ import {required} from "../../utils/validators/validators";
 import {connect} from "react-redux";
 import {login} from "../../redux/authReducer";
 import {Redirect} from "react-router-dom";
+import Button from "../Shared/Button/Button";
 
 const LoginForm = (props) => {
     const {handleSubmit} = props
@@ -27,7 +28,8 @@ const LoginForm = (props) => {
                 <Field name={'rememberMe'}  types={'checkbox'} component={CustomField}  type='checkbox' id='rememberMe'/>
                 <label htmlFor="rememberMe">Remember me</label>
             </div>
-            <button className={styles.submit}  type='submit'>Login</button>
+            {props.error && <div className={styles.error}>{props.error}</div>}
+            <Button typeClass={'aqua'} value={'Login'} type='submit'></Button>
         </form>
     )
 }

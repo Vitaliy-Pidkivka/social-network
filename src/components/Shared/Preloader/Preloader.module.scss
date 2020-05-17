@@ -1,16 +1,17 @@
 .preloader {
   display: inline-block;
   position: relative;
-  width: 18px;
-  height: 18px;
+  width: 25px;
+  height: 25px;
+  padding: 3px;
 
   div {
     box-sizing: border-box;
     display: block;
     position: absolute;
-    width: 18px;
-    height: 18px;
-    border: 2px solid #12dcc5;
+    width: 25px;
+    height: 25px;
+    border: 2px solid ;
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     border-color: #17e8e1 transparent transparent transparent;
