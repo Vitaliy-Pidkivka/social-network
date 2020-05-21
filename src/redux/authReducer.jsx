@@ -34,7 +34,7 @@ export const setAuthUserData = (userId, email, login, isAuth) => ({
 //redux-thunk
 export const getAuthUserData = () => {
     return (dispatch) => {
-        authApi.me()
+      return authApi.me()
             .then(data => {
                 if (data.resultCode === 0) {
                     let {id, email, login} = data.data
@@ -72,4 +72,4 @@ export const logout = () => {
 }
 
 
-export default authReducer;  
+export default authReducer;
