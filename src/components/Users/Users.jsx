@@ -31,7 +31,8 @@ const Users = (props) => {
                     <div className={styles['user__box']}>
                         <img src={user.photos.small ? user.photos.small : avatarUrl}
                              alt="avatar"
-                             className={styles['user__avatar']}/>
+                             className={styles['user__avatar']}
+                        />
                         {!props.followingInProgress.some(id => id === user.id) &&
                         <Button value={user.followed ? 'Unfollow' : 'Follow'}
                                 onClick={
@@ -41,7 +42,8 @@ const Users = (props) => {
                                 }
                                 sizeClass="small"
                                 typeClass="purple"
-                                className={styles['user__btn']}/>}
+                                className={styles['user__btn']}
+                        />}
                     </div>
                     <div className={styles['user__box']}>
                         <NavLink to={'/profile/' + user.id}><h3 className={styles['user__name']}> {user.name}</h3>
