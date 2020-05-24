@@ -6,7 +6,7 @@ import {Field, reduxForm} from "redux-form";
 import CustomField from "../../Shared/CustomFIeld/CustomField";
 import {maxLength, required} from "../../../utils/validators/validators";
 
-const maxLength100 = maxLength(100, )
+const maxLength100 = maxLength(100,)
 const AddNewPostForm = (props) => {
     return <form onSubmit={props.handleSubmit}>
         <Field name={'newPostBody'}
@@ -26,11 +26,14 @@ const AddNewPostForm = (props) => {
 }
 
 const AddNewPostReduxForm = reduxForm({form: 'addNewPostForm'})(AddNewPostForm)
-const MyPosts = (props) => {
+
+const MyPosts = React.memo( props => {
+    console.log('render yo')
     const addPost = (values) => {
         // props.dispatch(addPostActionCreator())
         props.addPost(values.newPostBody)
     }
+
     const removePost = () => {
         props.removePost()
     }
@@ -41,13 +44,14 @@ const MyPosts = (props) => {
             </div>
             <div className={styles['newPost']}>
                 <AddNewPostReduxForm onSubmit={addPost}
-                                     onClick1={removePost}/>
+                                     onClick1={removePost}
+                />
             </div>
             <div className="posts">
-                {props.state.posts.map((post) => (<Post {...post} key={post.id}/>))}
+                {props.posts.map((post) => (<Post {...post} key={post.id}/>))}
             </div>
         </div>
-    );
-}
+    )
+})
 
 export default MyPosts;

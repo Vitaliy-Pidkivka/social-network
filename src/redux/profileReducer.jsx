@@ -51,9 +51,11 @@ export const removePost = () => ({type: REMOVE_POST});
 export const setUserProfile = (profile) => (
     {type: SET_USER_PROFILE, profile}
 );
-export const setUserStatus = (status) => (
-    {type: SET_USER_STATUS, status}
-);
+export const setUserStatus = (status) => {
+    return (
+        {type: SET_USER_STATUS, status}
+    );
+}
 //redux-thunk
 export const setProfile = (userId) => (dispatch) => {
     profileApi.getProfile(userId)

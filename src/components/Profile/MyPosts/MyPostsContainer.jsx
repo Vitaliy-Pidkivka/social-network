@@ -8,10 +8,10 @@ import {connect} from "react-redux";
 
 let mapStateToProps = (state) => {
     return {
-        state: state.profile
+        posts: state.profile.posts
     }
 }
 const MyPostsContainer = connect(mapStateToProps,{addPost, removePost})(MyPosts)
-
+//
 
 export default MyPostsContainer;
