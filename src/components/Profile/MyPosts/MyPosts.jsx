@@ -17,38 +17,37 @@ const AddNewPostForm = (props) => {
                id={'newPostBody'}
         />
         <Button type={'submit'}
-                nClick={props.onClick}
+                onClick={props.onClick}
                 value="Add post" typeClass="aqua"/>
-        <Button onClick={props.onClick1}
-                value="Remove post"
-                typeClass="purple"/>
+        {/*<Button onClick={props.onClick1}*/}
+        {/*        value="Remove post"*/}
+        {/*        typeClass="purple"/>*/}
     </form>
 }
 
 const AddNewPostReduxForm = reduxForm({form: 'addNewPostForm'})(AddNewPostForm)
 
-const MyPosts = React.memo( props => {
-    console.log('render yo')
+const MyPosts = React.memo(props => {
     const addPost = (values) => {
         // props.dispatch(addPostActionCreator())
         props.addPost(values.newPostBody)
     }
 
-    const removePost = () => {
-        props.removePost()
-    }
+
     return (
         <div className={styles.myPosts}>
             <div className={styles['myPosts__title']}>
                 <p> My posts </p>
             </div>
             <div className={styles['newPost']}>
-                <AddNewPostReduxForm onSubmit={addPost}
-                                     onClick1={removePost}
-                />
+                <AddNewPostReduxForm onSubmit={addPost}/>
             </div>
             <div className="posts">
-                {props.posts.map((post) => (<Post {...post} key={post.id}/>))}
+                {props.posts.map(post => <Post {...post}
+                                               id={post.id}
+                                               key={post.id}
+                                               removePost={props.removePost}
+                />)}
             </div>
         </div>
     )

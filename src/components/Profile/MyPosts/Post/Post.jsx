@@ -1,8 +1,12 @@
 import React from 'react';
 import styles from './Post.module.scss'
 import userAvatar from '../../../../assets/images/user-avatar.png'
-const Post = (props) => {
-    const {message,likes} = props
+import Button from "../../../Shared/Button/Button";
+
+const Post = ({message, likes, removePost,id}) => {
+    const onRemovePost = (postId) => {
+        removePost(postId)
+    }
     return (
         <div className={styles.post}>
             <div className={styles['post__image']}>
@@ -17,6 +21,9 @@ const Post = (props) => {
                         alt="#"/>
                 </a>
             </div>
+            <Button onClick={()=>{onRemovePost(id)}}
+                    value="Remove post"
+                    typeClass="purple"/>
         </div>
     );
 }
