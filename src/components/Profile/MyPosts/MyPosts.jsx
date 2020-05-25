@@ -18,10 +18,8 @@ const AddNewPostForm = (props) => {
         />
         <Button type={'submit'}
                 onClick={props.onClick}
-                value="Add post" typeClass="aqua"/>
-        {/*<Button onClick={props.onClick1}*/}
-        {/*        value="Remove post"*/}
-        {/*        typeClass="purple"/>*/}
+                value="Add post" typeClass="aqua"
+        />
     </form>
 }
 
@@ -29,10 +27,8 @@ const AddNewPostReduxForm = reduxForm({form: 'addNewPostForm'})(AddNewPostForm)
 
 const MyPosts = React.memo(props => {
     const addPost = (values) => {
-        // props.dispatch(addPostActionCreator())
         props.addPost(values.newPostBody)
     }
-
 
     return (
         <div className={styles.myPosts}>

@@ -1,6 +1,6 @@
 import {getAuthUserData} from "./authReducer";
 
-const INITIALIZED_SUCCESS = "INITIALIZED_SUCCESS";
+const INITIALIZED_SUCCESS = "social-network/app/INITIALIZED_SUCCESS";
 
 let initialState = {
     initialized: false
@@ -23,13 +23,9 @@ export const initializedSuccess = () => ({
     type: INITIALIZED_SUCCESS
 });
 //redux-thunk
-export const initializeApp = () => {
-    return (dispatch) => {
-        let promise = dispatch(getAuthUserData());
-        promise.then(() => {
+export const initializeApp = () => async dispatch => {
+        await dispatch(getAuthUserData());
             dispatch(initializedSuccess());
-        })
-    }
 }
 
 

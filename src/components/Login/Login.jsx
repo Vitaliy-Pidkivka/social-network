@@ -1,42 +1,29 @@
 import React from "react";
 import {Field, reduxForm} from "redux-form";
 import styles from './Login.module.scss'
-import CustomField from "../Shared/CustomFIeld/CustomField";
+import CustomField, {createField} from "../Shared/CustomFIeld/CustomField";
 import {required} from "../../utils/validators/validators";
 import {connect} from "react-redux";
 import {login} from "../../redux/authReducer";
 import {Redirect} from "react-router-dom";
 import Button from "../Shared/Button/Button";
 
-const LoginForm = (props) => {
-    const {handleSubmit} = props
+const LoginForm = ({handleSubmit, error}) => {
+
     return (
         <form onSubmit={handleSubmit}>
-            <Field placeholder={'Email'}
-                   name={'email'}
-                   types={'input'}
-                   component={CustomField}
-                   validate={[required]}
-                   type='text'/>
-            <Field placeholder={'Password'}
-                   name={'password'}
-                   types={'input'}
-                   component={CustomField}
-                   validate={[required]}
-                   type='password'/>
-            <div className={styles['input-group']}>
-                <Field name={'rememberMe'}  types={'checkbox'} component={CustomField}  type='checkbox' id='rememberMe'/>
-                <label htmlFor="rememberMe">Remember me</label>
-            </div>
-            {props.error && <div className={styles.error}>{props.error}</div>}
-            <Button typeClass={'aqua'} value={'Login'} type='submit'></Button>
+            {createField('Email', 'email', 'input', CustomField, [required], 'text')}
+            {createField('Password', 'password', 'input', CustomField, [required], 'password')}
+            {createField('', 'rememberMe', 'input', CustomField, [],
+                'checkbox', {}, 'Remember me', [styles['input-group']])}
+            {error && <div className={styles.error}>{error}</div>}
+            <Button typeClass={'aqua'} value={'Login'} type='submit'/>
         </form>
     )
 }
 const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
-
 const Login = (props) => {
-    if(props.isAuth){
+    if (props.isAuth) {
         return <Redirect to='/profile'/>
     }
     let submit = (formData) => {
@@ -50,7 +37,7 @@ const Login = (props) => {
 
     )
 }
-let mapStateToProps = (state)=> {
+let mapStateToProps = (state) => {
     return {
         isAuth: state.auth.isAuth
     }

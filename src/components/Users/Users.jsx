@@ -14,20 +14,22 @@ const Users = (props) => {
         pages.push(i);
     }
     return (
-        <div className={styles['users']}>
+        <div className={styles['users']} >
             {props.isFetching && <Preloader className={styles['users__preloader']}/>}
             <div className={styles['users__pagination']}>
                 {pages.map(page => {
                     return <PaginationButton onClick={(e) => {
                         props.onPageChanged(page)
-                    }}
+                    }}                       key={page}
                                              value={page}
                                              current={props.currentPage}
-                                             page={page}/>
+                                             page={page}
+                    />
                 })}
             </div>
-            {props.users.map(user =>
-                <div className={styles['user']} key={user.id}>
+            {props.users.map(user => {
+                return <div className={styles['user']}
+                            key={user.id} >
                     <div className={styles['user__box']}>
                         <img src={user.photos.small ? user.photos.small : avatarUrl}
                              alt="avatar"
@@ -37,8 +39,12 @@ const Users = (props) => {
                         <Button value={user.followed ? 'Unfollow' : 'Follow'}
                                 onClick={
                                     user.followed
-                                        ? () => {props.unfollowThunk(user.id)}
-                                        : () => {props.followThunk(user.id)}
+                                        ? () => {
+                                            props.unfollowThunk(user.id)
+                                        }
+                                        : () => {
+                                            props.followThunk(user.id)
+                                        }
                                 }
                                 sizeClass="small"
                                 typeClass="purple"
@@ -54,7 +60,8 @@ const Users = (props) => {
                         <p className={styles['user__city']}>{"user.location.city"} </p>
                         <p className={styles['user__country']}>{"user.location.country"}</p>
                     </div>
-                </div>)}
+                </div>
+            })}
         </div>
     )
 }

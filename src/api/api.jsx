@@ -10,8 +10,8 @@ const instance = axios.create({
 
 export const usersApi = {
     getUsers(currentPage = 1, pageSizes = 10) {
-       return instance.get(
-           `users?page=${currentPage}&count=${pageSizes}`)
+        return instance.get(
+            `users?page=${currentPage}&count=${pageSizes}`)
             .then(response => response.data)
     },
     unfollow(userId) {
@@ -19,7 +19,7 @@ export const usersApi = {
             `follow/${userId}`)
             .then(response => response.data)
     },
-    follow(userId){
+    follow(userId) {
         return instance.post(
             `follow/${userId}`)
             .then(response => response.data)
@@ -27,34 +27,35 @@ export const usersApi = {
 }
 
 export const authApi = {
-    me(){
+    me() {
         return instance.get(`auth/me`)
             .then(response => response.data)
     },
-    login(email, password, rememberMe = false){
+    login(email, password, rememberMe = false) {
         return instance.post('auth/login', {email, password, rememberMe})
             .then(response => response.data)
     },
-    logout(){
+    logout() {
         return instance.delete('auth/login')
             .then(response => response.data)
     }
 }
 
 export const profileApi = {
-    getProfile (userId){
+    getProfile(userId) {
         return instance.get(
             `profile/${userId}`)
+            .then(response => response.data)
     },
-    getUserStatus (userId){
+    getUserStatus(userId) {
         return instance.get(
-            `profile/status/${userId}`
-        )
+            `profile/status/${userId}`)
+            .then(response => response.data)
     },
-    updateUserStatus (status){
+    updateUserStatus(status) {
         return instance.put(
-            `profile/status`,{status}
-        )
+            `profile/status`, {status})
+            .then(response => response.data)
     },
 }
 
