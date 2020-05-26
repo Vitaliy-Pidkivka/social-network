@@ -1,0 +1,58 @@
+.user {
+  display: flex;
+  background: linear-gradient(to right, #64e2e6 25%, #9198e5 65%);;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  box-shadow: 3px 3px 6px #404040;
+  border-radius: 4px;
+  flex: 0 1 100%;
+  width: 100%;
+  min-height: 110px;
+  p {
+    margin: 0;
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+justify-content: space-around;
+    &:nth-child(1) {
+      align-items: center;
+      flex: 0 0 100px;
+    }
+
+    &:nth-child(2) {
+      flex: 0 1 80%;
+    }
+
+    &:nth-child(3) {
+      flex: 0 1 20%;
+    }
+
+  }
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  &__btn {
+    margin-top: 20px;
+  }
+
+  &__name {
+    margin: 0;
+  }
+
+  &__status {
+    font-style: italic;
+  }
+
+  &__city {
+
+  }
+
+  &__country {
+  }
+}

@@ -4,23 +4,20 @@ import Preloader from "../../Shared/Preloader/Preloader";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 
-const ProfileInfo = (props) => {
-    if (!props.profile) {
+const ProfileInfo = ({profile, status, updateStatus}) => {
+    if (!profile) {
         return <Preloader/>
     }
     return (
         <div className={styles['profile__info']}>
-            <img src={props.profile.photos.small} alt="#"
+            <img src={profile.photos.small} alt="#"
                  className={styles.profile__avatar}/>
             <div className="profile__info-box">
-                <div className={styles['profile__name']}><p>{props.profile.fullName}</p></div>
-                <ProfileStatusWithHooks updateStatus={props.updateStatus} status={props.status} />
+                <div className={styles['profile__name']}><p>{profile.fullName}</p></div>
+                <ProfileStatusWithHooks updateStatus={updateStatus} status={status}/>
                 <div className="profile__site">
                     Web Site:
-                    <p>
-                        <a href="https://google.com"> {props.profile.contacts.twitter}</a>
-                    </p>
-
+                    <p><a href="https://google.com"> {profile.contacts.twitter}</a></p>
                 </div>
             </div>
         </div>
