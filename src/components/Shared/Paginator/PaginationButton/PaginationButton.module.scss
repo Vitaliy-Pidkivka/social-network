@@ -6,10 +6,12 @@
   transition: all 180ms ease-in-out;
   font-weight: bold;
   &:hover{
-    text-decoration: underline;
+    color: #26ecec;
   }
 }
 .current{
   text-shadow: 1px 1px 2px  black;
   color: aqua;
+  transform: scale(1.1);
+  margin-top: -1px;
 }

@@ -1,16 +1,14 @@
 import React from 'react';
 import styles from "./Button.module.scss";
-import preloaderImg from './preloader.gif'
 
-const Button = (props) => {
-
-    const {value = 'placeholder', typeClass = "", sizeClass = "", className = "", loading} = props;
+const Button = ({value,type,typeClass,sizeClass,className,imgSrc, imgClassName, onClick}) => {
 
     return (
-        <button type={props.type || 'button'} onClick={props.onClick}
+        <button type={type || 'button'} onClick={onClick}
                 className={`${styles.button} ${typeClass && styles[typeClass]} ${sizeClass &&
                 styles[sizeClass]} ${className && className}`}>
-            {loading ? <img src={preloaderImg} className={styles.preloader} alt="preloader"/> : value}
+            {value}
+            {imgSrc && <img src={imgSrc} className={imgClassName} alt="img"/> }
         </button>
     )
 

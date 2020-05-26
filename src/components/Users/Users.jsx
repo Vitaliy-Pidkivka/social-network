@@ -5,17 +5,18 @@ import Paginator from "../Shared/Paginator/Paginator";
 import User from "./User/User";
 
 
-const Users = ({totalUsersCount, pageSizes, onPageChanged, currentPage, users,isFetching, ...props}) => {
+const Users = ({totalUsersCount, pageSizes, onPageChanged, currentPage, users, isFetching, ...props}) => {
 
     return (
         <div className={styles['users']}>
             {isFetching && <Preloader className={styles['users__preloader']}/>}
-            <Paginator totalUsersCount={totalUsersCount}
+            <Paginator totalItemsCount={totalUsersCount}
                        pageSizes={pageSizes}
                        onPageChanged={onPageChanged}
                        currentPage={currentPage}
             />
             {users.map(user => <User user={user}
+                                     key={user.id}
                                      followingInProgress={props.followingInProgress}
                                      followThunk={props.followThunk}
                                      unfollowThunk={props.unfollowThunk}
