@@ -1,5 +1,5 @@
 import React from "react";
-import {Field, reduxForm} from "redux-form";
+import {reduxForm} from "redux-form";
 import styles from './Login.module.scss'
 import CustomField, {createField} from "../Shared/CustomFIeld/CustomField";
 import {required} from "../../utils/validators/validators";
