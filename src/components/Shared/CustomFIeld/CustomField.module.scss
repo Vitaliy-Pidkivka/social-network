@@ -2,7 +2,8 @@
   &.error {
     textarea, input {
       box-shadow: 0 0 10px red;
-border: 2px solid red;
+      border: 2px solid red;
+
       &:focus {
         box-shadow: 0 0 10px red;
         outline: none !important;
@@ -21,6 +22,9 @@ border: 2px solid red;
     background: white;
     overflow-y: scroll;
     outline: none !important;
+    @media (max-width: 767px) {
+      font-size: 16px;
+    }
 
     &:focus {
       box-shadow: 0 0 10px #1be1ef;

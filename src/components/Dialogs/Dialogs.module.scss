@@ -3,6 +3,10 @@
   justify-content: space-between;
   box-sizing: border-box;
   flex-wrap: wrap;
+  @media (max-width: 767px){
+    justify-content: center;
+  }
+
   p {
     margin: 0;
   }
@@ -15,6 +19,7 @@
       flex: 0 0 250px;
       padding: 0;
       margin-bottom: 15px;
+      margin-right: 0;
       width: 250px;
     }
   }
