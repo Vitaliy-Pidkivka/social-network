@@ -52,5 +52,8 @@ body, html {
   flex-grow: 1;
   background-color: #d5d5d5;
   background: linear-gradient(90deg, #1bc1c7 10%, #0e94d2 70%, #1bc1c7 100%);
+  @media (max-width: 767px) {
+    padding: 10px;
+  }
 }
 

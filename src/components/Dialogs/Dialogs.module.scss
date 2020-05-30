@@ -11,6 +11,12 @@
     flex: 0 0 300px;
     padding: 15px;
     margin-right: 20px;
+    @media (max-width: 767px) {
+      flex: 0 0 250px;
+      padding: 0;
+      margin-bottom: 15px;
+      width: 250px;
+    }
   }
 
   &__messages {
@@ -18,7 +24,12 @@
     padding: 15px;
     box-shadow: 0 0 10px black;
     min-width: 280px;
-
+    @media (max-width:767px) {
+      flex: 0 1 240px;
+      padding: 8px;
+      box-shadow: 0 0 10px #000;
+      min-width: 240px;
+    }
     .message {
       position: relative;
       display: flex;

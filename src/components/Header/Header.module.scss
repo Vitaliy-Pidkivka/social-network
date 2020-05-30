@@ -10,12 +10,22 @@
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 27;
+  @media (max-width: 767px) {
+    padding: 10px;
+  }
 
   img {
     max-width: 90px;
   }
 
   .auth {
+    display: flex;
+    flex-direction: column;
+
+    button {
+      margin-right: 0;
+    }
+
     a {
       background-color: aqua;
       padding: 4px 10px;
