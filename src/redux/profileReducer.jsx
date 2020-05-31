@@ -4,6 +4,7 @@ const ADD_POST = "social-network/profile/ADD-POST";
 const REMOVE_POST = "social-network/profile/REMOVE-POST";
 const SET_USER_PROFILE = "social-network/profile/SET-USER-PROFILE";
 const SET_USER_STATUS = "social-network/profile/SET-USER-STATUS";
+const SAVE_AVATAR_SUCCESS = "social-network/profile/SAVE-AVATAR-SUCCESS";
 
 
 let initialState = {
@@ -43,6 +44,12 @@ const profileReducer = (state = initialState, action) => {
                 status: action.status
             }
         }
+        case SAVE_AVATAR_SUCCESS: {
+            return {
+                ...state,
+                profile: {...state.profile, photos: action.photos}
+            }
+        }
         default:
             return state
     }
@@ -50,14 +57,9 @@ const profileReducer = (state = initialState, action) => {
 
 export const addPost = (newPostBody) => ({type: ADD_POST, newPostBody});
 export const removePost = (id) => ({type: REMOVE_POST, id});
-export const setUserProfile = (profile) => (
-    {type: SET_USER_PROFILE, profile}
-);
-export const setUserStatus = (status) => {
-    return (
-        {type: SET_USER_STATUS, status}
-    );
-}
+export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
+export const setUserStatus = (status) => ({type: SET_USER_STATUS, status});
+export const avatarSaveSuccess = (photos) => ({type: SAVE_AVATAR_SUCCESS, photos})
 //redux-thunk
 export const setProfile = (userId) => async dispatch => {
     let data = await profileApi.getProfile(userId)
@@ -73,6 +75,13 @@ export const updateStatus = (status) => async dispatch => {
     if (data.resultCode === 0) {
         dispatch(setUserStatus(status))
     }
+}
+export const saveAvatar = (file) => async dispatch => {
+    let data = await profileApi.saveAvatar(file)
+    if (data.resultCode === 0) {
+        dispatch(avatarSaveSuccess(data.data.photos))
+    }
+
 }
 
 export default profileReducer;

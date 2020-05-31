@@ -3,6 +3,7 @@ import styles from './Profile.module.scss'
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import profileBg from '../../assets/images/bg-profile.jpg'
+
 const Profile = (props) => {
     return (
         <div className={styles['profile']}>
@@ -11,7 +12,12 @@ const Profile = (props) => {
                     src={profileBg}
                     alt="#"/>
             </div>
-            <ProfileInfo updateStatus={props.updateStatus} status={props.status}  profile={props.profile}/>
+            <ProfileInfo updateStatus={props.updateStatus}
+                         status={props.status}
+                         profile={props.profile}
+                         isOwner={props.isOwner}
+                         saveAvatar={props.saveAvatar}
+            />
             <MyPostsContainer store={props.store} />
         </div>
     );

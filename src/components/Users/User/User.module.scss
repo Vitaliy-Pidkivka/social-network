@@ -20,9 +20,17 @@
     flex-direction: column;
     padding-right: 20px;
     justify-content: space-around;
+
+    @media (max-width: 767px){
+      padding-right: 8px;
+    }
+
     &:nth-child(1) {
       align-items: center;
       flex: 0 0 100px;
+      @media (max-width: 767px){
+        flex: 0 0 70px;
+      }
     }
 
     &:nth-child(2) {

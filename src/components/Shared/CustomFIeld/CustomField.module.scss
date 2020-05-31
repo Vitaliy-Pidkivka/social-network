@@ -23,7 +23,7 @@
     overflow-y: scroll;
     outline: none !important;
     @media (max-width: 767px) {
-      font-size: 16px;
+      font-size: 16px !important;
     }
 
     &:focus {

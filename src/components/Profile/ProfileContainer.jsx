@@ -1,17 +1,16 @@
 import React from 'react';
 import Profile from "./Profile";
-import {getStatus, setProfile, updateStatus} from "../../redux/profileReducer";
-import { withRouter} from "react-router-dom";
+import {getStatus, saveAvatar, setProfile, updateStatus} from "../../redux/profileReducer";
+import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {compose} from "redux";
 
-class ProfileContainer extends  React.Component{
-
-    componentDidMount() {
-        let userId= this.props.match.params.userId
-        if(!userId){
+class ProfileContainer extends React.Component {
+    refreshProfile() {
+        let userId = this.props.match.params.userId
+        if (!userId) {
             userId = this.props.authorizedUserId;
-            if(!userId){
+            if (!userId) {
                 this.props.history.push("/login");
             }
         }
@@ -19,14 +18,27 @@ class ProfileContainer extends  React.Component{
         this.props.getStatus(userId)
     }
 
-    render(){
-        return  <Profile updateStatus={this.props.updateStatus}
-                         status={this.props.status}
-                         profile={this.props.profile}/>
+    componentDidMount() {
+        this.refreshProfile()
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+       if(this.props.match.userId != prevProps.match.params.userId){
+           this.refreshProfile()
+       }
+    }
+
+    render() {
+        return <Profile updateStatus={this.props.updateStatus}
+                        status={this.props.status}
+                        profile={this.props.profile}
+                        isOwner={!this.props.match.userId}
+                        saveAvatar={this.props.saveAvatar}
+        />
     }
 }
 
-let mapStateToProps = (state)=>({
+let mapStateToProps = (state) => ({
     profile: state.profile.profile,
     status: state.profile.status,
     authorizedUserId: state.auth.userId,
@@ -34,6 +46,6 @@ let mapStateToProps = (state)=>({
 })
 
 export default compose(
-    connect(mapStateToProps, {setProfile, updateStatus, getStatus}),
+    connect(mapStateToProps, {setProfile, updateStatus, getStatus, saveAvatar}),
     withRouter,
 )(ProfileContainer);

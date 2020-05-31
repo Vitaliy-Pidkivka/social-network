@@ -11,9 +11,12 @@
   font-size: 14px;
   line-height: 18px;
   font-family: 'OgoweyDemo';
-letter-spacing: 1.2px;
-  &:not(:first-child) {
-    margin-right: 10px;
+  transition:  background-color .3s ease;
+  letter-spacing: 1.2px;
+
+
+  @media (max-width: 767px){
+    font-size: 12px;
   }
 
   &:hover {
@@ -28,7 +31,7 @@ letter-spacing: 1.2px;
     background-color: aqua;
 
     &:hover {
-      background-color: #09e4e6;
+      background-color: #07d3d5;
     }
 
   }

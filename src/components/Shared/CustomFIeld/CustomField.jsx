@@ -9,17 +9,18 @@ const CustomField = ({input, meta: {touched, error}, ...props}) => {
     let {id} = props
     return (
         <div className={`${styles['custom-field']} ${hasError ? styles.error : ''}`}>
-            {typeField === 'input' ? <input {...input} {...props} className={styles.input} id={id}/>
-                : typeField === 'textarea' ? <textarea {...input} {...props} id={id}/>
-                    : typeField === 'checkbox' ? <input type='checkbox' {...input} {...props} id={id}/>
-                        : <span> </span>
-            }
+            {typeField === 'input' && <input {...input} {...props} className={styles.input} id={id}/>}
+            {typeField === 'textarea' && <textarea {...input} {...props} id={id}/>}
+            {typeField === 'checkbox' && <input type='checkbox' {...input} {...props} id={id}/>}
+            {!typeField && <span> </span>}
+
             {hasError && <div>{error}</div>}
         </div>
     )
 }
 
-export const createField = (placeholder, name, types, component, validators, type, props = {}, text = 'label',className) => {
+export const createField = (placeholder, name, types, component, validators, type, props = {}, text = 'label',
+    className) => {
     const checkbox = type === 'checkbox';
     return <div className={className || ''}>
         <Field placeholder={placeholder}
