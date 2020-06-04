@@ -9,7 +9,7 @@ import {Redirect} from "react-router-dom";
 import Button from "../Shared/Button/Button";
 
 const LoginForm = ({handleSubmit, error}) => {
-
+debugger
     return (
         <form onSubmit={handleSubmit}>
             {createField('Email', 'email', 'input', CustomField, [required], 'text')}

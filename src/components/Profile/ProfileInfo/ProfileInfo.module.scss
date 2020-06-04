@@ -3,10 +3,11 @@
   &__info {
     display: flex;
     margin-top: 30px;
-    @media (max-width: 767px){
+    @media (max-width: 767px) {
       flex-direction: column;
       margin-top: 10px;
     }
+
     p {
       margin: 0;
       display: inline;
@@ -15,10 +16,10 @@
     a {
       text-decoration: none;
       color: blue;
+      transition: all .3s ease;
 
       &:hover {
-        color: #595dcb;
-        text-shadow: 1px 1px 0 #595dcb;
+        color: #3761ea;
       }
     }
   }
@@ -31,9 +32,9 @@
     border-radius: 4px;
     box-shadow: 0 0 4px black;
 
-    @media (max-width: 767px){
+    @media (max-width: 767px) {
       width: 100%;
-      img{
+      img {
         width: 100%;
       }
     }
@@ -42,7 +43,7 @@
       display: flex;
       flex-direction: column;
       margin-right: 10px;
-      @media (max-width: 767px){
+      @media (max-width: 767px) {
         margin-bottom: 25px;
         align-items: center;
         margin-right: 0;
@@ -80,5 +81,36 @@
       }
     }
   }
+}
 
+.contact {
+  padding-left: 15px;
+  font-style: italic;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  > div {
+    height: 22px;
+  }
+
+  label {
+    margin-left: 5px;
+    cursor: pointer;
+  }
+
+  input {
+    width: 15px !important;
+    height: 15px !important;
+    cursor: pointer;
+    margin: 0;
+  }
+}
+
+.profile__description-form{
+  button{
+    margin-bottom: 20px;
+  }
 }

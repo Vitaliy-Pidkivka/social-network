@@ -52,12 +52,15 @@
   > div {
     margin-top: 3px;
     margin-bottom: 20px;
-    color: #fd6161;
-    font-weight: bold;
+    color: #631671;
+    font-weight: 900;
     text-transform: uppercase;
-    text-shadow: 0 1px 4px black;
     font-size: 14px;
     letter-spacing: 2px;
+    text-shadow: 1px 1px 0 #ff0000;
+  }
+  label{
+    cursor: pointer;
   }
 }
 

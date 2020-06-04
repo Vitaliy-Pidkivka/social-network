@@ -3,7 +3,7 @@ import styles from './CustomField.module.scss'
 import {Field} from "redux-form";
 
 
-const CustomField = ({input, meta: {touched, error}, ...props}) => {
+const CustomField = ({input,meta, meta: {touched, error}, ...props}) => {
     let hasError = touched && error
     let typeField = props.types
     let {id} = props
@@ -29,7 +29,7 @@ export const createField = (placeholder, name, types, component, validators, typ
                component={component}
                validate={validators}
                type={type}
-               id={checkbox && name}
+               id={name}
                {...props}
         />
         {checkbox && <label htmlFor={name}>{text}</label>}
