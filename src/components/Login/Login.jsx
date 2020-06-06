@@ -8,8 +8,7 @@ import {login} from "../../redux/authReducer";
 import {Redirect} from "react-router-dom";
 import Button from "../Shared/Button/Button";
 
-const LoginForm = ({handleSubmit, error}) => {
-debugger
+const LoginForm = ({handleSubmit, error, captchaUrl}) => {
     return (
         <form onSubmit={handleSubmit}>
             {createField('Email', 'email', 'input', CustomField, [required], 'text')}
@@ -17,6 +16,9 @@ debugger
             {createField('', 'rememberMe', 'input', CustomField, [],
                 'checkbox', {}, 'Remember me', [styles['input-group']])}
             {error && <div className={styles.error}>{error}</div>}
+            {captchaUrl && <img src={captchaUrl} alt=""/>}
+            {captchaUrl && createField('Captcha for image', 'captcha', 'input',
+                CustomField, [required], 'text')}
             <Button typeClass={'aqua'} value={'Login'} type='submit'/>
         </form>
     )
@@ -27,19 +29,22 @@ const Login = (props) => {
         return <Redirect to='/profile'/>
     }
     let submit = (formData) => {
-        props.login(formData.email, formData.password, formData.rememberMe)
+        props.login(formData.email, formData.password, formData.rememberMe, formData.captcha)
     }
     return (
         <div className={styles.login}>
             <h1>Login</h1>
-            <LoginReduxForm onSubmit={submit}/>
+            <LoginReduxForm onSubmit={submit}
+                            captchaUrl={props.captchaUrl}
+            />
         </div>
 
     )
 }
 let mapStateToProps = (state) => {
     return {
-        isAuth: state.auth.isAuth
+        isAuth: state.auth.isAuth,
+        captchaUrl: state.auth.captchaUrl,
     }
 }
 export default connect(mapStateToProps, {login})(Login)

@@ -62,10 +62,10 @@ let AppContainer = compose(
 
 let SocialNetworkApp = () => {
     return <HashRouter>
-        <Provider store={store}>
-            <AppContainer/>
-        </Provider>
-    </HashRouter>
+                <Provider store={store}>
+                    <AppContainer/>
+                </Provider>
+            </HashRouter>
 }
 
 export default SocialNetworkApp

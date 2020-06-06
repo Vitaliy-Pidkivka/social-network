@@ -15,7 +15,9 @@
       align-items: center;
       margin-bottom: 20px;
     }
-
+    img{
+      margin-bottom: 20px;
+    }
     input {
 
       &[type='checkbox'] {
@@ -23,6 +25,11 @@
         height: 15px;
         margin: 0;
         cursor: pointer;
+      }
+      &:focus{
+        &::placeholder{
+          opacity: 0;
+        }
       }
     }
 
