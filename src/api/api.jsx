@@ -55,9 +55,13 @@ export const profileApi = {
             .then(response => response.data)
     },
     getUserStatus(userId) {
-        return instance.get(
-            `profile/status/${userId}`)
-            .then(response => response.data)
+        try {
+            return instance.get(
+                `profile/status/${userId}`)
+                .then(response => response.data)
+        } catch (error) {
+            console.log(error)
+        }
     },
     updateUserStatus(status) {
         return instance.put(

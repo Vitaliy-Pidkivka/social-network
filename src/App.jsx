@@ -1,7 +1,7 @@
 import React, {Suspense} from 'react';
 import './App.scss';
 import Sidebar from "./components/Sidebar/Sidebar";
-import {HashRouter, Route, withRouter} from "react-router-dom";
+import {BrowserRouter, Redirect, Route, withRouter} from "react-router-dom";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
@@ -33,11 +33,14 @@ class App extends React.Component {
                     <Sidebar store={this.props.store}/>
                     <div className="main-screen">
                         {<Suspense fallback={<Preloader/>}>
+                            <Route path="/" exact
+                                   render={() => <Redirect to="/profile"/>}
+                            />
                             <Route path="/profile/:userId?" exact
-                                   render={() => <ProfileContainer store={this.props.store}/>}
+                                   render={() => <ProfileContainer />}
                             />
                             <Route path="/dialogs/:id?"
-                                   render={(props) => <DialogsContainer store={this.props.store} {...props} />}/>
+                                   render={(props) => <DialogsContainer  {...props} />}/>
                             <Route path="/news" component={News}/>
                             <Route path="/music" component={Music}/>
                             <Route path="/users" render={() => <UsersContainer/>}/>
@@ -61,11 +64,11 @@ let AppContainer = compose(
     connect(mapStateToProps, {initializeApp}))(App);
 
 let SocialNetworkApp = () => {
-    return <HashRouter>
+    return <BrowserRouter>
                 <Provider store={store}>
                     <AppContainer/>
                 </Provider>
-            </HashRouter>
+            </BrowserRouter>
 }
 
 export default SocialNetworkApp
