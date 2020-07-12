@@ -10,18 +10,20 @@ const Profile = (props) => {
             <div className={styles['profile__img']}>
                 <img
                     src={profileBg}
-                    alt="#"/>
+                    alt="#"
+                />
             </div>
-            <ProfileInfo updateStatus={props.updateStatus}
-                         status={props.status}
-                         profile={props.profile}
-                         isOwner={props.isOwner}
-                         saveAvatar={props.saveAvatar}
-                         saveProfile={props.saveProfile}
-                         editMode={props.editMode}
-                         setEditMode={props.setEditMode}
+            <ProfileInfo
+                updateStatus={props.updateStatus}
+                status={props.status}
+                profile={props.profile}
+                isOwner={props.isOwner}
+                saveAvatar={props.saveAvatar}
+                saveProfile={props.saveProfile}
+                editMode={props.editMode}
+                setEditMode={props.setEditMode}
             />
-            <MyPostsContainer store={props.store} />
+            <MyPostsContainer store={props.store}/>
         </div>
     );
 }

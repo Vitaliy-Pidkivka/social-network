@@ -9,16 +9,18 @@ import {maxLength, required} from "../../../utils/validators/validators";
 const maxLength100 = maxLength(100,)
 const AddNewPostForm = (props) => {
     return <form onSubmit={props.handleSubmit}>
-        <Field name={'newPostBody'}
-               component={CustomField}
-               types={'textarea'}
-               validate={[required, maxLength100]}
-               placeholder={'My own social network in progress...'}
-               id={'newPostBody'}
+        <Field
+            name={'newPostBody'}
+            component={CustomField}
+            types={'textarea'}
+            validate={[required, maxLength100]}
+            placeholder={'My own social network in progress...'}
+            id={'newPostBody'}
         />
-        <Button type={'submit'}
-                onClick={props.onClick}
-                value="Add post" typeClass="aqua"
+        <Button
+            type={'submit'}
+            onClick={props.onClick}
+            value="Add post" typeClass="aqua"
         />
     </form>
 }
@@ -39,11 +41,12 @@ const MyPosts = React.memo(props => {
                 <AddNewPostReduxForm onSubmit={addPost}/>
             </div>
             <div className="posts">
-                {props.posts.map(post => <Post {...post}
-                                               id={post.id}
-                                               key={post.id}
-                                               removePost={props.removePost}
-                />)}
+                {props.posts.map(post =>
+                    <Post {...post}
+                          id={post.id}
+                          key={post.id}
+                          removePost={props.removePost}
+                    />)}
             </div>
         </div>
     )

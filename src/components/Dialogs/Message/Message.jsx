@@ -9,7 +9,11 @@ const Message = (props) => {
     return (
         <div className={className}>
             <span className={styles['message__text']}>{props.message}</span>
-            <Button value="remove" sizeClass="small" typeClass={'aqua'}/>
+            <Button
+                value="remove"
+                sizeClass="small"
+                typeClass={'aqua'}
+            />
         </div>
     )
 

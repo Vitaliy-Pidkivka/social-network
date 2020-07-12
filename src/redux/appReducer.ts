@@ -6,7 +6,7 @@ export type  InitialStateType = {
     initialized: boolean
 }
 
-let initialState = {
+let initialState: InitialStateType = {
     initialized: false
 }
 

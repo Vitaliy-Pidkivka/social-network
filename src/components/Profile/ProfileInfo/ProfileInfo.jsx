@@ -18,16 +18,19 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, saveAvatar, savePr
         }
     }
     const goToEditMode = () => {
-         setEditMode(true)
+        setEditMode(true)
     }
     const onSubmitForm = (profileInfoData) => {
-         saveProfile(profileInfoData)
+        saveProfile(profileInfoData)
     }
     return (
         <div className={styles['profile__info']}>
             <div className={styles['profile__avatar-wrapper']}>
-                <img src={profile.photos.large || userPhoto} alt="#"
-                     className={styles.profile__avatar}/>
+                <img
+                    src={profile.photos.large || userPhoto}
+                    alt="#"
+                    className={styles.profile__avatar}
+                />
                 {isOwner && <CustomUploadInput
                     id={'avatar'}
                     name={'avatar'}
@@ -39,14 +42,19 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, saveAvatar, savePr
             </div>
             <div className="profile__info-box">
                 <div className={styles['profile__name']}><p>{profile.fullName}</p></div>
-                <ProfileStatus updateStatus={updateStatus} status={status}/>
-                {editMode ? <ProfileDescriptionForm initialValues={profile}
-                                                    profile={profile}
-                                                    onSubmit={onSubmitForm}
+                <ProfileStatus
+                    updateStatus={updateStatus}
+                    status={status}
+                />
+                {editMode ? <ProfileDescriptionForm
+                        initialValues={profile}
+                        profile={profile}
+                        onSubmit={onSubmitForm}
                     />
-                    : <ProfileDescription profile={profile}
-                                          isOwner={isOwner}
-                                          goToEditMode={goToEditMode}
+                    : <ProfileDescription
+                        profile={profile}
+                        isOwner={isOwner}
+                        goToEditMode={goToEditMode}
                     />}
             </div>
         </div>

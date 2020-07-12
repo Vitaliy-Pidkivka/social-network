@@ -5,9 +5,10 @@ import Button from "../../Shared/Button/Button";
 const ProfileDescription = ({profile, isOwner, goToEditMode}) => {
     return (
         <div className="profile__description">
-            {isOwner && <Button value={'Edit profile'}
-                                onClick={goToEditMode}
-                                typeClass={'aqua'}
+            {isOwner && <Button
+                value="Edit profile"
+                onClick={goToEditMode}
+                typeClass="aqua"
             />}
             <div><b>About me: </b> {profile.aboutMe}</div>
             <div><b>Looking for a job: </b> {profile.lookingForAJob ? 'Yes' : 'No'}</div>
@@ -28,7 +29,7 @@ const ProfileDescription = ({profile, isOwner, goToEditMode}) => {
 const Contact = ({title, value}) => {
     return <div className={styles.contact}><b>{title}: </b> <a href={value}
                                                                rel="noopener noreferrer"
-                                                               target="_blank">{value}</a> </div>
+                                                               target="_blank">{value}</a></div>
 }
 
 export default ProfileDescription

@@ -7,30 +7,38 @@ import styles from './ProfileInfo.module.scss';
 const ProfileDescriptionForm = ({profile, handleSubmit, error}) => {
 
     return (
-        <form onSubmit={handleSubmit} className={styles['profile__description-form']}>
-            <Button value={'Save changes'}
-                    typeClass={'aqua'}
-                    type={'submit'}
+        <form
+            onSubmit={handleSubmit}
+            className={styles['profile__description-form']}
+        >
+            <Button
+                value={'Save changes'}
+                typeClass={'aqua'}
+                type={'submit'}
             />
             {error && <div>{error}</div>}
-            <div>{createField('Full name', 'fullName', 'input',
-                CustomField, [], 'input', {}, '')}
-            </div>
-            <div> {createField('About me', 'aboutMe', 'input',
-                CustomField, [], 'input', {}, '')}
+            <div>
+                {createField('Full name', 'fullName', 'input',
+                    CustomField, [], 'input', {}, '')}
             </div>
             <div>
-                 {createField('Looking for a job', 'lookingForAJob', 'checkbox',
-                  CustomField, [], 'checkbox', {}, 'Looking for a job', `${styles.checkbox}` )}
+                {createField('About me', 'aboutMe', 'input',
+                    CustomField, [], 'input', {}, '')}
             </div>
-            <div>{createField('My skills', 'lookingForAJobDescription', 'input',
-                CustomField, [], 'input', {}, '')}
+            <div>
+                {createField('Looking for a job', 'lookingForAJob', 'checkbox',
+                    CustomField, [], 'checkbox', {},
+                    'Looking for a job', `${styles.checkbox}`)}
+            </div>
+            <div>
+                {createField('My skills', 'lookingForAJobDescription', 'input',
+                    CustomField, [], 'input', {}, '')}
             </div>
             <div>
                 {Object.keys(profile.contacts).map(key => {
                     return <div key={key}>{createField(key, 'contacts.' + key, 'input',
                         CustomField, [], 'input', {}, '')}</div>
-                }) }
+                })}
             </div>
         </form>
     )

@@ -19,7 +19,11 @@ const LoginForm = ({handleSubmit, error, captchaUrl}) => {
             {captchaUrl && <img src={captchaUrl} alt=""/>}
             {captchaUrl && createField('Captcha for image', 'captcha', 'input',
                 CustomField, [required], 'text')}
-            <Button typeClass={'aqua'} value={'Login'} type='submit'/>
+            <Button
+                typeClass={'aqua'}
+                value={'Login'}
+                type='submit'
+            />
         </form>
     )
 }
@@ -34,8 +38,9 @@ const Login = (props) => {
     return (
         <div className={styles.login}>
             <h1>Login</h1>
-            <LoginReduxForm onSubmit={submit}
-                            captchaUrl={props.captchaUrl}
+            <LoginReduxForm
+                onSubmit={submit}
+                captchaUrl={props.captchaUrl}
             />
         </div>
 

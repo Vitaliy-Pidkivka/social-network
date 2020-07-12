@@ -1,6 +1,5 @@
 const ADD_MESSAGE = "social-network/dialogs/ADD-MESSAGE"
 
-
 let initialState = {
     dialogList: [
         {name: 'Tania Pidkivka', id: 1},
@@ -25,6 +24,6 @@ const dialogsReducer = (state = initialState, action) => {
     }
 }
 
-export const addMessage = (id,messageBody) => ({type: ADD_MESSAGE, id, messageBody});
+export const addMessage = (id,messageBody) => ({type: ADD_MESSAGE, id, messageBody})
 
-export default dialogsReducer;
+export default dialogsReducer

@@ -10,18 +10,21 @@ import {maxLength, required} from "../../utils/validators/validators";
 let maxLength80 = maxLength(80)
 const AddNewMessageForm = (props) => {
     return <form onSubmit={props.handleSubmit}>
-        <Field name={'newMessageBody'}
-               types={'textarea'}
-               validate={[required, maxLength80]}
-               component={CustomField}
-               placeholder="Send your message..."
-               id={'newMessageBody'}
+        <Field
+            name={'newMessageBody'}
+            types={'textarea'}
+            validate={[required, maxLength80]}
+            component={CustomField}
+            placeholder="Send your message..."
+            id={'newMessageBody'}
         />
-        <Button onClick={props.handleSubmit}
-                type={'submit'}
-                value={"Send"}
-                typeClass="aqua" sizeClass="small"
-                className={styles["dialogs__btn"]}/>
+        <Button
+            onClick={props.handleSubmit}
+            type={'submit'}
+            value={"Send"}
+            typeClass="aqua" sizeClass="small"
+            className={styles["dialogs__btn"]}
+        />
     </form>
 }
 const AddNewMessageReduxForm = reduxForm({form: 'AddNewMessageForm'})(AddNewMessageForm)

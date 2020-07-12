@@ -8,25 +8,56 @@ const SET_USER_STATUS = "social-network/profile/SET-USER-STATUS";
 const SAVE_AVATAR_SUCCESS = "social-network/profile/SAVE-AVATAR-SUCCESS";
 const SET_EDIT_MODE = "social-network/profile/SET-EDIT-MODE";
 
+type PostType = {
+    id: number,
+    message: string,
+    likes: number
+}
+type ContactsType ={
+    github: string,
+    vk: string,
+    facebook: string,
+    instagram: string,
+    twitter: string,
+    website: string,
+    youtube: string,
+    mainLink: string,
+}
+type PhotosType = {
+    small: string | null,
+    large: string | null
+}
+type ProfileType = {
+    userId: number,
+    lookingForAJob: boolean,
+    lookingForAJobDescription: boolean,
+    fullName: string,
+    contacts: ContactsType,
+    photos: PhotosType,
+
+}
 
 let initialState = {
     posts: [
         {id: 1, message: "Hi, how are you?", likes: 15},
         {id: 2, message: "It's my new post", likes: 20},
         {id: 3, message: "Social network in progress....", likes: 52},
-    ],
-    profile: null,
+    ] as Array<PostType>,
+    profile: null as ProfileType | null,
     status: '',
     editMode: false,
+    startPostId: 0
 }
 
+export type initialStateType  = typeof initialState
 
-const profileReducer = (state = initialState, action) => {
+const profileReducer = (state = initialState, action:any):initialStateType => {
     switch (action.type) {
         case ADD_POST: {
             if (action.newPostBody) {
                 let newPostId = state.posts.map(post => post.id > state.startPostId && post.id + 1)
-                return {...state, posts: [...state.posts, {id: newPostId, message: action.newPostBody, likes: 0}],}
+                return {...state,
+                    posts: [...state.posts, {id: newPostId, message: action.newPostBody, likes: 0}] as Array<PostType>,}
             } else {
                 alert("You didn't write anything, please write the text")
                 return state
@@ -50,7 +81,7 @@ const profileReducer = (state = initialState, action) => {
         case SAVE_AVATAR_SUCCESS: {
             return {
                 ...state,
-                profile: {...state.profile, photos: action.photos}
+                profile: {...state.profile, photos: action.photos} as ProfileType
             }
         }
         case SET_EDIT_MODE: {
@@ -64,34 +95,59 @@ const profileReducer = (state = initialState, action) => {
     }
 }
 
-export const addPost = (newPostBody) => ({type: ADD_POST, newPostBody});
-export const removePost = (id) => ({type: REMOVE_POST, id});
-export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
-export const setUserStatus = (status) => ({type: SET_USER_STATUS, status});
-export const avatarSaveSuccess = (photos) => ({type: SAVE_AVATAR_SUCCESS, photos})
-export const setEditMode = (editMode) => ({type: SET_EDIT_MODE, editMode})
+
+type AddPostActionType = {
+    type: typeof ADD_POST,
+    newPostBody: string
+}
+export const addPost = (newPostBody:string): AddPostActionType => ({type: ADD_POST, newPostBody});
+type RemovePostActionType = {
+    type: typeof REMOVE_POST,
+    id: number
+}
+export const removePost = (id:number):RemovePostActionType => ({type: REMOVE_POST, id});
+type SetUserProfileActionType = {
+    type: typeof SET_USER_PROFILE,
+    profile: ProfileType
+}
+export const setUserProfile = (profile: ProfileType):SetUserProfileActionType => ({type: SET_USER_PROFILE, profile});
+type SetUserStatusActionType = {
+    type: typeof SET_USER_STATUS,
+    status: string
+}
+export const setUserStatus = (status:string):SetUserStatusActionType => ({type: SET_USER_STATUS, status});
+type AvatarSaveSuccessActionType = {
+    type: typeof SAVE_AVATAR_SUCCESS,
+    photos: PhotosType
+}
+export const avatarSaveSuccess = (photos:PhotosType):AvatarSaveSuccessActionType => ({type: SAVE_AVATAR_SUCCESS, photos})
+type SetEditModeActionType = {
+    type: typeof SET_EDIT_MODE,
+    editMode: boolean
+}
+export const setEditMode = (editMode:boolean):SetEditModeActionType => ({type: SET_EDIT_MODE, editMode})
 //redux-thunk
-export const setProfile = (userId) => async dispatch => {
+export const setProfile = (userId:number) => async (dispatch:any) => {
     const data = await profileApi.getProfile(userId)
     dispatch(setUserProfile(data))
 }
-export const getStatus = (userId) => async dispatch => {
+export const getStatus = (userId:number) => async (dispatch:any) => {
     const data = await profileApi.getUserStatus(userId)
     dispatch(setUserStatus(data))
 }
-export const updateStatus = (status) => async dispatch => {
+export const updateStatus = (status: string) => async (dispatch:any) => {
     const data = await profileApi.updateUserStatus(status)
     if (data.resultCode === 0) {
         dispatch(setUserStatus(status))
     }
 }
-export const saveAvatar = (file) => async dispatch => {
+export const saveAvatar = (file:any) => async (dispatch:any) => {
     const data = await profileApi.saveAvatar(file)
     if (data.resultCode === 0) {
         dispatch(avatarSaveSuccess(data.data.photos))
     }
 }
-export const saveProfile = (profile) => async (dispatch, getState) => {
+export const saveProfile = (profile:ProfileType) => async (dispatch:any, getState:any) => {
     const userId = getState().auth.userId
     const data = await profileApi.saveProfile(profile)
     if (data.resultCode === 0) {
@@ -104,4 +160,4 @@ export const saveProfile = (profile) => async (dispatch, getState) => {
     }
 }
 
-export default profileReducer;
+export default profileReducer

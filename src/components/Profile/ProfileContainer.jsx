@@ -23,20 +23,21 @@ class ProfileContainer extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-       if(this.props.match.params.userId !== prevProps.match.params.userId){
-           this.refreshProfile()
-       }
+        if (this.props.match.params.userId !== prevProps.match.params.userId) {
+            this.refreshProfile()
+        }
     }
 
     render() {
-        return <Profile updateStatus={this.props.updateStatus}
-                        status={this.props.status}
-                        profile={this.props.profile}
-                        isOwner={!this.props.match.userId}
-                        saveAvatar={this.props.saveAvatar}
-                        saveProfile={this.props.saveProfile}
-                        editMode={this.props.editMode}
-                        setEditMode={this.props.setEditMode}
+        return <Profile
+            updateStatus={this.props.updateStatus}
+            status={this.props.status}
+            profile={this.props.profile}
+            isOwner={!this.props.match.userId}
+            saveAvatar={this.props.saveAvatar}
+            saveProfile={this.props.saveProfile}
+            editMode={this.props.editMode}
+            setEditMode={this.props.setEditMode}
         />
     }
 }
@@ -50,6 +51,6 @@ let mapStateToProps = (state) => ({
 })
 
 export default compose(
-    connect(mapStateToProps, {setProfile, updateStatus, getStatus, saveAvatar,saveProfile, setEditMode}),
+    connect(mapStateToProps, {setProfile, updateStatus, getStatus, saveAvatar, saveProfile, setEditMode}),
     withRouter,
 )(ProfileContainer);
