@@ -1,5 +1,6 @@
 const ADD_MESSAGE = "social-network/dialogs/ADD-MESSAGE"
 
+
 let initialState = {
     dialogList: [
         {name: 'Tania Pidkivka', id: 1},
