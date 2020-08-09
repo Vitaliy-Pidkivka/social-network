@@ -25,3 +25,9 @@ export type ProfileType = {
     contacts: ContactsType,
     photos: PhotosType,
 }
+export type UserType = {
+    id: number,
+    name: string,
+    status: string,
+    photos: PhotosType
+}
