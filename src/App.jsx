@@ -65,11 +65,13 @@ let AppContainer = compose(
     connect(mapStateToProps, {initializeApp}))(App);
 
 let SocialNetworkApp = () => {
-    return <BrowserRouter>
-                <Provider store={store}>
-                    <AppContainer/>
-                </Provider>
-            </BrowserRouter>
+    return (
+        <BrowserRouter>
+            <Provider store={store}>
+                <AppContainer/>
+            </Provider>
+        </BrowserRouter>
+    )
 }
 
 export default SocialNetworkApp

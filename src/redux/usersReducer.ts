@@ -1,6 +1,6 @@
 import {usersApi} from "../api/api";
 import {updateObjectInArray} from "../utils/objectHelpers";
-import { ProfileType } from "../types/types";
+import {ProfileType, UserType} from "../types/types";
 const FOLLOW = "social-network/users/FOLLOW";
 const UNFOLLOW = "social-network/users/UNFOLLOW";
 const SET_USERS = "social-network/users/SET-USERS";
@@ -12,7 +12,7 @@ const TOGGLE_IS_FOLLOWING_PROGRESS = "social-network/users/TOGGLE-IS-FOLLOWING-P
 
 
 let initialState = {
-    users: [] as Array<ProfileType>,
+    users: [] as Array<UserType>,
     pageSizes: 15,
     totalUsersCount: 0,
     page: 1,
