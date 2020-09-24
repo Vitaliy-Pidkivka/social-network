@@ -38,6 +38,11 @@ const Login = (props) => {
     return (
         <div className={styles.login}>
             <h1>Login</h1>
+            <div>login details:</div>
+            <ul>
+							<li>login: Offlensvets@gmail.com</li>
+							<li>password: bender200</li>
+						</ul>
             <LoginReduxForm
                 onSubmit={submit}
                 captchaUrl={props.captchaUrl}
